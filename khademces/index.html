@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>دليل مشاية الأربعين</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: #f9f9f9;
+            padding: 20px;
+            direction: rtl;
+            line-height: 1.6;
+            margin: 0;
+            transition: background 0.3s, color 0.3s;
+            color: #333; /* Default text color */
+        }
+        body.dark-mode {
+            background: #1a1a1a; /* Darker background */
+            color: #e0e0e0;
+        }
+        h1 {
+            color: #800000;
+            font-size: 32px; /* Slightly larger */
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 700;
+        }
+        #language-switcher {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        #language-switcher button, #dark-mode-toggle {
+            margin: 0 8px; /* More spacing */
+            padding: 8px 16px; /* Larger buttons */
+            font-size: 15px;
+            font-weight: bold;
+            background: #fff;
+            border: 1px solid #800000;
+            color: #800000;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s, border-color 0.3s, transform 0.1s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Soft shadow */
+        }
+        #language-switcher button:hover, #dark-mode-toggle:hover {
+            background: #800000;
+            color: #fff;
+            transform: translateY(-1px);
+        }
+        body.dark-mode #language-switcher button, body.dark-mode #dark-mode-toggle {
+            background: #333;
+            border-color: #bb4444;
+            color: #ff8888;
+        }
+        body.dark-mode #language-switcher button:hover, body.dark-mode #dark-mode-toggle:hover {
+            background: #bb4444;
+            color: #fff;
+        }
+
+        input[type="text"] {
+            padding: 14px; /* Larger padding */
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 auto 15px auto; /* More margin */
+            width: 90vw;
+            max-width: 900px;
+            display: block;
+            border: 2px solid #800000;
+            border-radius: 10px; /* More rounded */
+            box-sizing: border-box;
+            background-color: #fff;
+            color: #000;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Stronger shadow */
+        }
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #b30000; /* Darker red on focus */
+            box-shadow: 0 0 0 3px rgba(128, 0, 0, 0.2); /* Focus ring */
+        }
+        body.dark-mode input[type="text"] {
+            background-color: #2a2a2a; /* Darker input background */
+            color: #eee;
+            border-color: #ff6666;
+            box-shadow: 0 2px 8px rgba(255, 100, 100, 0.2);
+        }
+        body.dark-mode input[type="text"]:focus {
+            border-color: #ff9999;
+            box-shadow: 0 0 0 3px rgba(255, 100, 100, 0.3);
+        }
+
+        #suggestions {
+            max-width: 600px;
+            margin: 0 auto 15px auto; /* More margin */
+            text-align: center;
+            font-size: 15px;
+            color: #800000;
+            font-weight: 600;
+        }
+        #suggestions a {
+            color: #800000;
+            text-decoration: none; /* No underline */
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+        #suggestions a:hover {
+            color: #b30000; /* Darker red on hover */
+            text-decoration: underline; /* Underline on hover */
+        }
+        body.dark-mode #suggestions {
+            color: #ff8888;
+        }
+        body.dark-mode #suggestions a {
+            color: #ff6666;
+        }
+        body.dark-mode #suggestions a:hover {
+            color: #ff9999;
+        }
+
+        #countdown-container {
+            max-width: 600px;
+            margin: 15px auto 35px auto; /* More margin */
+            padding: 20px; /* More padding */
+            background: #fff;
+            border-radius: 10px; /* More rounded */
+            border: 1px solid #800000;
+            text-align: center;
+            transition: background 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Stronger shadow */
+        }
+        body.dark-mode #countdown-container {
+            background: #2a2a2a;
+            border-color: #bb4444;
+            color: #eee;
+            box-shadow: 0 4px 12px rgba(255, 100, 100, 0.25);
+        }
+        #countdown-title {
+            font-size: 24px; /* Slightly larger */
+            font-weight: 700;
+            margin-bottom: 18px; /* More space below title */
+            color: #800000;
+            transition: color 0.3s;
+        }
+        body.dark-mode #countdown-title {
+            color: #ff6666;
+        }
+
+        /* UPDATED COUNTDOWN STYLES - FORCED SINGLE ROW WITH HORIZONTAL SCROLL */
+        #countdown {
+            display: flex; /* Always display as a flex row */
+            justify-content: center; /* Center horizontally */
+            gap: 8px; /* Reduced gap slightly for smaller screens */
+            overflow-x: auto; /* Allow horizontal scrolling if content overflows */
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+            padding-bottom: 5px; /* Add some padding for scrollbar if it appears */
+            white-space: nowrap; /* Keep content in a single line */
+        }
+        .countdown-unit {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 8px 10px; /* Reduced padding */
+            min-width: 65px; /* Reduced min-width to try and fit all */
+            max-width: 80px; /* Optional: cap max width */
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+            flex-shrink: 0; /* Prevent shrinking when space is tight */
+            flex-grow: 0; /* Prevent growing too much */
+        }
+
+        /* Responsive adjustments for countdown units */
+        @media (max-width: 480px) { /* For small phones */
+            .countdown-unit {
+                padding: 6px 8px; /* Further reduced padding for very small screens */
+                min-width: 60px; /* Even smaller min-width */
+            }
+            .countdown-value {
+                font-size: 1.6em; /* Smaller font for values */
+            }
+            .countdown-label {
+                font-size: 0.7em; /* Smaller font for labels */
+            }
+            #countdown {
+                gap: 5px; /* Very small gap */
+            }
+        }
+        /* END UPDATED COUNTDOWN STYLES */
+
+
+        body.dark-mode .countdown-unit {
+            background-color: #3b3b3b;
+            border-color: #555;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .countdown-value {
+            font-size: 2.2em; /* Larger number */
+            font-weight: 700;
+            color: #333; /* Darker for numbers */
+            line-height: 1; /* Tighter spacing */
+            margin-bottom: 5px; /* Space between number and label */
+            transition: color 0.3s;
+        }
+        body.dark-mode .countdown-value {
+            color: #eee;
+        }
+        .countdown-label {
+            font-size: 0.9em;
+            color: #555; /* Slightly muted for label */
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        body.dark-mode .countdown-label {
+            color: #bbb;
+        }
+
+
+        /* --- NEW COLLAPSIBLE INFO SECTION STYLES --- */
+        #info-section {
+            max-width: 600px;
+            margin: 20px auto 40px auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            overflow: hidden; /* For rounded corners on first/last item */
+            border: 1px solid #ddd; /* Light border for the whole section */
+        }
+        body.dark-mode #info-section {
+            background: #2a2a2a;
+            box-shadow: 0 4px 12px rgba(255, 100, 100, 0.25);
+            border-color: #555;
+        }
+
+        .info-item {
+            border-bottom: 1px solid #eee; /* Separator for each item */
+        }
+        .info-item:last-child {
+            border-bottom: none; /* No border for the last item */
+        }
+        body.dark-mode .info-item {
+            border-color: #3d3d3d;
+        }
+
+        .info-header {
+            padding: 15px 20px;
+            background-color: #f0f0f0; /* Light background for header */
+            color: #800000;
+            font-weight: 700;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .info-header:hover {
+            background-color: #e0e0e0;
+        }
+        body.dark-mode .info-header {
+            background-color: #333;
+            color: #ff6666;
+        }
+        body.dark-mode .info-header:hover {
+            background-color: #444;
+        }
+
+        .info-header .arrow {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+            margin-left: 10px; /* Space between text and arrow */
+        }
+        .info-header.expanded .arrow {
+            transform: rotate(90deg); /* Rotate arrow when expanded */
+        }
+
+        .info-content {
+            padding: 0 20px; /* Initial padding, actual padding applied on expand */
+            background-color: #fff;
+            color: #333; /* Consistent text color */
+            font-size: 16px;
+            line-height: 1.8;
+            max-height: 0; /* Initially hidden */
+            overflow: hidden; /* Only hide initially, control dynamically via JS */
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+        }
+        body.dark-mode .info-content {
+            background-color: #2a2a2a;
+            color: #e0e0e0; /* Consistent text color for dark mode */
+        }
+
+        /* NEW SUB-INFO STYLES */
+        .sub-info-item {
+            margin-bottom: 10px; /* Space between sub-sections */
+            border-bottom: 1px dashed #eee; /* Lighter separator */
+            padding-bottom: 10px;
+        }
+        .sub-info-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+        body.dark-mode .sub-info-item {
+            border-color: #444;
+        }
+
+        .sub-info-header {
+            font-weight: 700;
+            font-size: 17px; /* Slightly smaller than main header */
+            color: #800000; /* Consistent red */
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0; /* Padding for click area */
+            background-color: transparent; /* No background for sub-header */
+            transition: color 0.2s;
+        }
+        .sub-info-header:hover {
+            color: #b30000; /* Darker red on hover */
+        }
+        body.dark-mode .sub-info-header {
+            color: #ff6666;
+        }
+        body.dark-mode .sub-info-header:hover {
+            color: #ff9999;
+        }
+
+        .sub-info-header .arrow {
+            font-size: 18px; /* Slightly smaller arrow */
+            transition: transform 0.3s ease;
+            margin-left: 8px;
+        }
+        .sub-info-header.expanded .arrow {
+            transform: rotate(90deg);
+        }
+
+        .sub-info-content {
+            max-height: 0;
+            overflow: hidden; /* Only hide initially, control dynamically via JS */
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+            padding: 0 0; /* Initial padding */
+            color: #333; /* Consistent text color */
+        }
+        body.dark-mode .sub-info-content {
+            color: #e0e0e0; /* Consistent text color for dark mode */
+        }
+
+        /* Standardize content styling within info sections */
+        .info-content p, .sub-info-content p {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: inherit; /* Inherit color from parent (.info-content or .sub-info-content) */
+        }
+        .info-content p:last-child, .sub-info-content p:last-child {
+            margin-bottom: 0;
+        }
+        .info-content ul, .sub-info-content ul {
+            list-style: none; /* Remove default list bullets */
+            padding: 0;
+            margin: 0;
+        }
+        .info-content ul li, .sub-info-content ul li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-right: 20px; /* Space for custom bullet */
+            color: inherit; /* Inherit color from parent */
+        }
+        /* Custom bullet point for list items */
+        .info-content ul li::before, .sub-info-content ul li::before {
+            content: '•'; /* Use a bullet character */
+            color: #800000; /* Red bullet */
+            font-weight: bold;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        body.dark-mode .info-content ul li::before, body.dark-mode .sub-info-content ul li::before {
+            color: #ff6666;
+        }
+        .info-content strong, .sub-info-content strong {
+            color: #550000; /* Darker red for bold text */
+        }
+        body.dark-mode .info-content strong, body.dark-mode .sub-info-content strong {
+            color: #ff8888;
+        }
+        /* --- END NEW COLLAPSIBLE INFO SECTION STYLES --- */
+
+
+        #columns-container {
+            max-width: 600px;
+            margin: 0 auto 50px auto; /* More bottom margin */
+        }
+
+        /* --- COLUMN DESIGN STYLES (MATCHING IMAGE) --- */
+        .column {
+            display: flex; /* To arrange header and content side by side */
+            background: #f9f9f9; /* Light background */
+            margin-bottom: 15px;
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden; /* To contain the floated header */
+            transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+            padding: 0; /* Remove padding from the main container */
+            scroll-margin-top: 20px; /* Keep for scrolling to column */
+        }
+        body.dark-mode .column {
+            background: #2a2a2a;
+            box-shadow: 0 2px 8px rgba(255, 100, 100, 0.2);
+        }
+
+        .column-header {
+            background-color: #800000; /* Dark red background */
+            color: #fff;
+            padding: 15px 20px;
+            text-align: center;
+            min-width: 80px; /* Adjust as needed to fit the number */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0; /* Prevent it from shrinking */
+        }
+
+        .column-header strong {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #fff; /* Ensure text is white */
+            display: block; /* Ensure it takes full width */
+            text-align: center; /* Center the "العمود" text */
+        }
+
+        .column-header span {
+            font-size: 28px; /* Larger font for column number */
+            font-weight: bold;
+            color: #fff; /* Ensure number is white */
+            line-height: 1; /* Adjust line height for the number */
+        }
+
+        .column .name {
+            font-size: 17px;
+            color: #333;
+            text-align: right; /* Align text to the right */
+            padding: 15px 20px; /* Add padding to the content area */
+            flex-grow: 1; /* Allow the name section to take remaining space */
+            box-sizing: border-box; /* Include padding in width calculation */
+            margin-bottom: 0; /* Remove default bottom margin */
+        }
+        .column .name .name-item { /* Style for individual names within the name container */
+            margin-bottom: 5px; /* Spacing between names */
+        }
+        .column .name .name-item:last-child {
+            margin-bottom: 0;
+        }
+        body.dark-mode .column .name {
+            color: #eee;
+        }
+        /* --- END COLUMN DESIGN STYLES --- */
+
+        #logo-container {
+            position: fixed;
+            bottom: 15px; /* Slightly higher */
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.95); /* Less transparent */
+            padding: 8px 15px; /* More padding */
+            border-radius: 8px; /* More rounded */
+            box-shadow: 0 0 8px rgba(0,0,0,0.25); /* Stronger shadow */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px; /* More space */
+            z-index: 9999;
+            font-weight: bold;
+            font-family: 'Cairo', sans-serif;
+            font-size: 13px; /* Slightly larger */
+            color: #800000;
+            transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+        }
+        body.dark-mode #logo-container {
+            background: rgba(34, 34, 34, 0.95);
+            color: #ff6666;
+            box-shadow: 0 0 8px #ff4444;
+        }
+        #logo-container img {
+            height: 45px; /* Slightly larger logo */
+            width: auto;
+            display: block;
+            /* Add this filter for dark mode */
+            transition: filter 0.3s ease-in-out; /* Smooth transition for the filter */
+        }
+        body.dark-mode #logo-container img {
+            filter: invert(1) hue-rotate(180deg) brightness(1.2); /* Invert colors for dark mode */
+            /* invert(1) turns black to white, hue-rotate(180deg) adjusts hues, brightness(1.2) makes it brighter */
+        }
+        #logo-container span {
+            color: #000;
+            font-size: 11px; /* Slightly larger */
+            transition: color 0.3s;
+        }
+        body.dark-mode #logo-container span {
+            color: #ff9999;
+        }
+        #offline-message {
+            display: none;
+            text-align: center;
+            color: #d32f2f;
+            font-weight: bold;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #ffebee;
+            border-radius: 5px;
+            border: 1px solid #ef9a9a;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        body.dark-mode #offline-message {
+            color: #ff9999;
+            background-color: #4a1c1c;
+            border-color: #8b0000;
+        }
+
+        /* New style for no results message */
+        #no-results-message {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #d32f2f; /* Red color for warning */
+            font-weight: bold;
+            display: none; /* Hidden by default */
+        }
+        body.dark-mode #no-results-message {
+            color: #ff8888;
+        }
+    </style>
+</head>
+<body>
+    <div id="logo-container">
+        <img src="logo.png" alt="شعار Khadem - خادم" />
+        <span>@khademcrs</span>
+    </div>
+
+    <div id="language-switcher">
+        <button onclick="switchLanguage('ar')" aria-label="تبديل إلى اللغة العربية">ع</button>
+        <button onclick="switchLanguage('en')" aria-label="Switch to English">E</button>
+        <button onclick="switchLanguage('fa')" aria-label="تغییر به زبان فارسی">ف</button>
+        <button id="dark-mode-toggle" title="تبديل الوضع الداكن" aria-label="تبديل الوضع الداكن">🌗</button>
+    </div>
+
+    <h1>🏴 دليل مشاية الأربعين 🏴</h1>
+
+    <input type="text" id="search" placeholder="ابحث برقم العمود، الاسم..." aria-label="مربع البحث عن الأعمدة والأسماء" />
+
+    <p id="suggestions">
+        للاقتراح أو التعديل،
+        <a href="https://forms.gle/U6CPCJba3KsJKBHW9" target="_blank" rel="noopener noreferrer">اضغط هنا</a>
+    </p>
+
+    <div id="countdown-container">
+        <div id="countdown-title">العد التنازلي ليوم الأربعين</div>
+        <div id="countdown">
+            <div class="countdown-unit">
+                <div class="countdown-value" id="countdown-days-value">00</div>
+                <div class="countdown-label" id="countdown-days-label">يوم</div>
+            </div>
+            <div class="countdown-unit">
+                <div class="countdown-value" id="countdown-hours-value">00</div>
+                <div class="countdown-label" id="countdown-hours-label">ساعة</div>
+            </div>
+            <div class="countdown-unit">
+                <div class="countdown-value" id="countdown-minutes-value">00</div>
+                <div class="countdown-label" id="countdown-minutes-label">دقيقة</div>
+            </div>
+            <div class="countdown-unit">
+                <div class="countdown-value" id="countdown-seconds-value">00</div>
+                <div class="countdown-label" id="countdown-seconds-label">ثانية</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="offline-message">
+        أنت غير متصل بالإنترنت. قد تكون البيانات قديمة.
+    </div>
+
+    <div id="info-section">
+        </div>
+    <div id="columns-container"></div>
+    <p id="no-results-message" style="display:none;"></p>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js"></script>
+    <script>
+        // Register Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('Service Worker registered with scope:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.error('Service Worker registration failed:', error);
+                    });
+            });
+        }
+
+        const countdownDate = new Date('2025-08-15T00:00:00+03:00').getTime();
+        let currentLang = localStorage.getItem('arbaeenGuideLang') || 'ar'; // Load last used language
+        let columnsData = [];
+        let fuse; // For fuzzy search
+
+        const uiTexts = {
+            ar: {
+                heading: '🏴 دليل مشاية الأربعين 🏴',
+                countdownTitle: 'العد التنازلي ليوم الأربعين',
+                searchInput: 'ابحث برقم العمود، الاسم...',
+                suggestions: `للاقتراح أو التعديل، <a href="https://forms.gle/U6CPCJba3KsJKBHW9" target="_blank" rel="noopener noreferrer">اضغط هنا</a>`,
+                noResults: 'لا توجد نتائج.',
+                offlineMessage: 'أنت غير متصل بالإنترنت. قد تكون البيانات قديمة.',
+                columnText: 'العمود',
+                daysUnit: 'يوم',
+                hoursUnit: 'ساعة',
+                minutesUnit: 'دقيقة',
+                secondsUnit: 'ثانية',
+                infoSectionTitle: 'معلومات مهمة للمشاة',
+                infoContent: {
+                    startPoint: {
+                        title: '⬅️ نقطة الانطلاق',
+                        text: `
+                            <ul>
+                                <li><strong>من العمود 1 إلى 182:</strong> هذه الأرقام مبدئية داخل النجف.</li>
+                                <li>تبدأ المسيرة من <strong>حرم الإمام علي عليه السلام</strong>، وتخرج من <strong>باب الساعة</strong> مشيًا باتجاه: <strong>شارع الإمام زين العابدين عليه السلام أو شارع الإمام الصادق عليه السلام</strong> ثم تستمر بشكل مستقيم حتى تصل إلى <strong>الشارع الرئيسي (طريق كربلاء)</strong> حيث تنضم إلى آلاف الزوار المتجهين إلى كربلاء.</li>
+                                <li>بعد قطع <strong>حوالي 75 كيلومترًا</strong>، تصل إلى العمود <strong>رقم 1452</strong>، وهو بجوار <strong>حرم مولانا أبي الفضل العباس عليه السلام</strong>.</li>
+                            </ul>
+                        `
+                    },
+                    generalInfo: {
+                        title: '✅ معلومات عامة',
+                        text: `
+                            <ul>
+                                <li>المسافة بين النجف وكربلاء: <strong>80 كيلومترًا</strong></li>
+                                <li>عدد الأعمدة: <strong>1452 عمودًا</strong></li>
+                                <li>المسافة بين كل عمودين: <strong>50 مترًا</strong></li>
+                                <li>(<strong>20 عمود = 1 كيلومتر</strong>)</li>
+                                <li>المدة التقريبية للمشي: <strong>من 2 إلى 3 أيام</strong></li>
+                                <li>أفضل وقت للانطلاق: <strong>16 أو 17 صفر</strong></li>
+                            </ul>
+                        `
+                    },
+                    walkSchedule: {
+                        title: '🕘 جدول المشي المقترح',
+                        text: `
+                            <ul>
+                                <li>من <strong>بعد صلاة الفجر حتى 10 صباحًا</strong></li>
+                                <li>راحة حتى دخول صلاة الظهرين</li>
+                                <li>استئناف المسير من <strong>بعد صلاة العصر حتى 10 مساءً</strong></li>
+                                <li>راحة ونوم ليلاً</li>
+                            </ul>
+                        `
+                    },
+                    walkInstructions: {
+                        title: '📌 تعليمات عامة للمشي',
+                        text: `
+                            <ul>
+                                <li>لا تُجهد نفسك، وخذ فترات راحة عند الحاجة.</li>
+                                <li>عند أذان المغرب، ابحث عن موكب للصلاة والعشاء والمبيت. لا تقلق من قلة المواكب، لكن لا تتأخر حتى لا تمتلئ.</li>
+                                <li>الليلة الأولى والثانية تُقضى في مواكب (حسينيات أو خيام) مع العشاء والنوم.</li>
+                                <li>مراكز المفقودين موجودة عند الأعمدة: <strong>٧٢ و ٣٣٥ و ٦٠٢ و ١١٠٣ و العتبتين المقدستين (الحسينية والعباسية)</strong> ويوجد مركز للتبليغ عن المفقودين <strong>كل 3 كيلومتر</strong>.</li>
+                            </ul>
+                        `
+                    },
+                    itemsToCarry: {
+                        title: '🎒 الأغراض والمستلزمات المقترحة',
+                        text: `
+                            <ul>
+                                <li><strong>خفّف الحمل:</strong> لا حاجة لحمل ماء أو طعام، فكل شيء متوفر مجانًا.</li>
+                                <li>خذ أدويتك الخاصة لما يكفي 2 أو 3 أيام. توجد عيادات متنقلة على الطريق.</li>
+                                <li>حقيبة صغيرة على الظهر أفضل من كيس باليد، ومعها شاحن متنقل.</li>
+                                <li>كريم للجلد مثل فازلين أو نيفيا لتجنب الطفح أو الاحتكاك. يُفضل استخدامه قبل بدء المشي.</li>
+                                <li>احمل في الجوال أو الورق: نعي، لطميات، زيارات، أدعية، قرآن</li>
+                                <li><strong>الحذاء:</strong> لا ترتدِ حذاءً جديدًا أو مغلقًا، الأفضل حذاء مفتوح مريح.</li>
+                                <li>جواز السفر والفيزا، واحتفظ بهما بعناية.</li>
+                                <li>عربة للأطفال في حال التعب وحمل مستلزماتهم.</li>
+                                <li>عصا تساعد كبار السن في المشي وتخفف التعب.</li>
+                            </ul>
+                        `
+                    },
+                    importantNotes: {
+                        title: '📍 ملاحظات مهمة',
+                        text: `
+                            <ul>
+                                <li>كل الخدمات (طعام، شراب، مبيت، تدليك) <strong>مجانية تمامًا</strong>. لا حاجة لحمل أموال كثيرة إلا إذا رغبت في التبرع للمواكب.</li>
+                                <li>دورات المياه متوفرة، وبعض المواكب توفر مراحيض إفرنجية.</li>
+                                <li>إذا تعبت، توجد <strong>مئات السيارات والباصات</strong> لنقلك إلى كربلاء بسهولة.</li>
+                                <li>اكتب <strong>اسمك وعنوان سكنك في كربلاء</strong> في ورقة، فقد تنقطع شبكة الجوال عند الوصول.</li>
+                                <li>إن احتجت الاتصال، فافعل ذلك <strong>قبل طلوع الشمس</strong> لتجنب الزحام في الشبكة.</li>
+                            </ul>
+                        `
+                    },
+                    recommendations: {
+                        title: '🔰 توصيات',
+                        text: `
+                            <ul>
+                                <li>اجعل نيتك لله تعالى في المشي والخدمة الحسينية.</li>
+                                <li>حافظ على الصلاة في وقتها كما فعل الإمام الحسين عليه السلام يوم عاشوراء.</li>
+                                <li>اجعل أيام الأربعين أيام حزن وجد، وابتعد عن الضحك غير المناسب.</li>
+                                <li>أكثر من: <strong>اللهم صلِّ على محمد وآل محمد، وعجّل فرجهم، والعن أعداءهم، ووفقنا للاقتداء بهم يا كريم.</strong></li>
+                                <li>حافظ على نظافة وقداسة الأماكن المقدسة.</li>
+                                <li>أختي المؤمنة: اجعلي <strong>حجابك في هذه الأماكن الطاهرة</strong> أفضل وأستر من حجابك في بلدك.</li>
+                            </ul>
+                        `
+                    }
+                }
+            },
+            en: {
+                heading: '🏴 Arbaeen Processions Guide 🏴',
+                countdownTitle: 'Countdown to Arbaeen Day',
+                searchInput: 'Search by column number, name...',
+                suggestions: `To suggest edits or additions, <a href="https://forms.gle/U6CPCJba3KsJKBHW9" target="_blank" rel="noopener noreferrer">click here</a>`,
+                noResults: 'No results found.',
+                offlineMessage: 'You are offline. Data might be outdated.',
+                columnText: 'Column',
+                daysUnit: 'day',
+                hoursUnit: 'hour',
+                minutesUnit: 'minute',
+                secondsUnit: 'second',
+                infoSectionTitle: 'Important Information for Walkers',
+                infoContent: {
+                    startPoint: {
+                        title: '⬅️ Starting Point',
+                        text: `
+                            <ul>
+                                <li><strong>From Columns 1 to 182:</strong> These numbers are preliminary within Najaf.</li>
+                                <li>The procession starts from the <strong>Shrine of Imam Ali (peace be upon him)</strong>, exiting from <strong>Bab Al-Sa\'ah</strong> (The Clock Gate) walking towards: <strong>Imam Zain Al-Abideen Street or Imam Al-Sadiq Street</strong> then continues straight until it reaches the <strong>main road (Karbala Road)</strong> where it joins thousands of pilgrims heading to Karbala.</li>
+                                <li>After covering <strong>approximately 75 kilometers</strong>, you will reach Column <strong>number 1452</strong>, which is next to the <strong>Shrine of our Master Abu Al-Fadl Al-Abbas (peace be upon him)</strong>.</li>
+                            </ul>
+                        `
+                    },
+                    generalInfo: {
+                        title: '✅ General Information',
+                        text: `
+                            <ul>
+                                <li>Distance between Najaf and Karbala: <strong>80 kilometers</strong></li>
+                                <li>Number of columns: <strong>1452 columns</strong></li>
+                                <li>Distance between each two columns: <strong>50 meters</strong></li>
+                                <li>(<strong>20 columns = 1 kilometer</strong>)</li>
+                                <li>Approximate walking duration: <strong>2 to 3 days</strong></li>
+                                <li>Best time to start: <strong>16th or 17th Safar</strong></li>
+                            </ul>
+                        `
+                    },
+                    walkSchedule: {
+                        title: '🕘 Suggested Walking Schedule',
+                        text: `
+                            <ul>
+                                <li>From <strong>after Fajr prayer until 10 AM</strong></li>
+                                <li>Rest until Dhuhr and Asr prayers</li>
+                                <li>Resume walking from <strong>after Asr prayer until 10 PM</strong></li>
+                                <li>Rest and sleep at night</li>
+                            </ul>
+                        `
+                    },
+                    walkInstructions: {
+                        title: '📌 General Walking Instructions',
+                        text: `
+                            <ul>
+                                <li>Do not overexert yourself, and take breaks when needed.</li>
+                                <li>At Maghrib Adhan, look for a Moukeb (service station) for prayer, dinner, and overnight stay. Don't worry about the scarcity of Moukebs, but don't delay too much so they don't get full.</li>
+                                <li>The first and second nights are spent in Moukebs (Hussainiyas or tents) with dinner and sleep.</li>
+                                <li>Missing persons centers are located at Columns: <strong>72, 335, 602, 1103, and the two Holy Shrines (Al-Hussainiya and Al-Abbasiya)</strong>, and there is a center for reporting missing persons <strong>every 3 kilometers</strong>.</li>
+                            </ul>
+                        `
+                    },
+                    itemsToCarry: {
+                        title: '🎒 Suggested Items & Necessities',
+                        text: `
+                            <ul>
+                                <li><strong>Lighten your load:</strong> No need to carry water or food, everything is available for free.</li>
+                                <li>Take your personal medications for 2 or 3 days. There are mobile clinics along the road.</li>
+                                <li>A small backpack is better than a hand bag, and carry a portable charger.</li>
+                                <li>Skin cream like Vaseline or Nivea to avoid rashes or friction. It's recommended to use it before starting the walk.</li>
+                                <li>Keep on your phone or paper: eulogies, lamentations, supplications, prayers, Quran.</li>
+                                <li><strong>Footwear:</strong> Do not wear new or closed shoes. Comfortable open shoes are better.</li>
+                                <li>Passport and visa, and keep them carefully.</li>
+                                <li>Stroller for children in case of fatigue and to carry their necessities.</li>
+                                <li>A walking stick helps the elderly and reduces fatigue.</li>
+                            </ul>
+                        `
+                    },
+                    importantNotes: {
+                        title: '📍 Important Notes',
+                        text: `
+                            <ul>
+                                <li>All services (food, drink, accommodation, massage) are <strong>completely free</strong>. No need to carry much money unless you wish to donate to the Moukebs.</li>
+                                <li>Restrooms are available, and some Moukebs provide Western-style toilets.</li>
+                                <li>If you get tired, there are <strong>hundreds of cars and buses</strong> to transport you to Karbala easily.</li>
+                                <li>Write your <strong>name and accommodation address in Karbala</strong> on a piece of paper, as mobile network might cut off upon arrival.</li>
+                                <li>If you need to make a call, do it <strong>before sunrise</strong> to avoid network congestion.</li>
+                            </ul>
+                        `
+                    },
+                    recommendations: {
+                        title: '🔰 Recommendations',
+                        text: `
+                            <ul>
+                                <li>Make your intention for Allah Almighty in walking and serving Imam Hussain (peace be upon him).</li>
+                                <li>Maintain prayers on time as Imam Hussain (peace be upon him) did on the Day of Ashura.</li>
+                                <li>Make the days of Arbaeen days of sorrow and seriousness, and avoid inappropriate laughter.</li>
+                                <li>Recite frequently: <strong>"O Allah, send blessings upon Muhammad and the family of Muhammad, and hasten their reappearance, and curse their enemies, and grant us success in following them, O Most Generous."</strong></li>
+                                <li>Maintain the cleanliness and sanctity of the holy places.</li>
+                                <li>My dear sister in faith: make your <strong>hijab in these pure places</strong> better and more modest than your hijab in your own country.</li>
+                            </ul>
+                        `
+                    }
+                }
+            },
+            fa: {
+                heading: '🏴 راهنمای موکب‌های اربعین 🏴',
+                countdownTitle: 'شمارش معکوس تا روز اربعین',
+                searchInput: 'جستجو بر اساس شماره ستون، نام...',
+                suggestions: `برای پیشنهاد یا ویرایش، <a href="https://forms.gle/U6CPCJba3KsJKBHW9" target="_blank" rel="noopener noreferrer">اینجا کلیک کنید</a>`,
+                noResults: 'نتیجه‌ای یافت نشد.',
+                offlineMessage: 'شما آفلاین هستید. ممکن است داده‌ها قدیمی باشند.',
+                columnText: 'ستون',
+                daysUnit: 'روز',
+                hoursUnit: 'ساعت',
+                minutesUnit: 'دقیقه',
+                secondsUnit: 'ثانیه',
+                infoSectionTitle: 'اطلاعات مهم برای زائرین',
+                infoContent: {
+                    startPoint: {
+                        title: '⬅️ نقطه شروع',
+                        text: `
+                            <ul>
+                                <li><strong>از ستون 1 تا 182:</strong> این شماره‌ها اولیه در داخل نجف هستند.</li>
+                                <li>مسیر پیاده‌روی از <strong>حرم امام علی (علیه السلام)</strong> آغاز می‌شود، از <strong>باب الساعه</strong> (دروازه ساعت) به سمت <strong>خیابان امام زین‌العابدین (علیه السلام) یا خیابان امام صادق (علیه السلام)</strong> حرکت کرده و سپس مستقیماً ادامه می‌یابد تا به <strong>جاده اصلی (جاده کربلا)</strong> برسد، جایی که به هزاران زائر دیگر که به سمت کربلا می‌روند، می‌پیوندید.</li>
+                                <li>پس از طی کردن <strong>حدود 75 کیلومتر</strong>، به ستون <strong>شماره 1452</strong> می‌رسید که در کنار <strong>حرم مولای ما اباالفضل العباس (علیه السلام)</strong> قرار دارد.</li>
+                            </ul>
+                        `
+                    },
+                    generalInfo: {
+                        title: '✅ اطلاعات عمومی',
+                        text: `
+                            <ul>
+                                <li>فاصله بین نجف و کربلا: <strong>80 کیلومتر</strong></li>
+                                <li>تعداد ستون‌ها: <strong>1452 ستون</strong></li>
+                                <li>فاصله بین هر دو ستون: <strong>50 متر</strong></li>
+                                <li>(<strong>20 ستون = 1 کیلومتر</strong>)</li>
+                                <li>مدت زمان تقریبی پیاده‌روی: <strong>2 تا 3 روز</strong></li>
+                                <li>بهترین زمان برای شروع: <strong>16 یا 17 صفر</strong></li>
+                            </ul>
+                        `
+                    },
+                    walkSchedule: {
+                        title: '🕘 برنامه پیشنهادی پیاده‌روی',
+                        text: `
+                            <ul>
+                                <li>از <strong>بعد از نماز صبح تا ساعت 10 صبح</strong></li>
+                                <li>استراحت تا زمان نماز ظهر و عصر</li>
+                                <li>ادامه مسیر از <strong>بعد از نماز عصر تا ساعت 10 شب</strong></li>
+                                <li>استراحت و خواب در شب</li>
+                            </ul>
+                        `
+                    },
+                    walkInstructions: {
+                        title: '📌 دستورالعمل‌های عمومی پیاده‌روی',
+                        text: `
+                            <ul>
+                                <li>خود را بیش از حد خسته نکنید و در صورت نیاز استراحت کنید.</li>
+                                <li>هنگام اذان مغرب، به دنبال موکبی برای نماز، شام و بیتوته باشید. نگران کمبود موکب نباشید، اما خیلی دیر نکنید تا پر نشوند.</li>
+                                <li>شب اول و دوم در موکب‌ها (حسینیه‌ها یا چادرها) با شام و خواب سپری می‌شود.</li>
+                                <li>مراکز گمشدگان در ستون‌های <strong>72، 335، 602، 1103 و دو حرم مطهر (حسینی و عباسی)</strong> قرار دارند و هر <strong>3 کیلومتر</strong> یک مرکز گزارش گمشدگان وجود دارد.</li>
+                            </ul>
+                        `
+                    },
+                    itemsToCarry: {
+                        title: '🎒 وسایل و ملزومات پیشنهادی',
+                        text: `
+                            <ul>
+                                <li><strong>بار خود را سبک کنید:</strong> نیازی به حمل آب و غذا نیست، همه چیز به صورت رایگان در دسترس است.</li>
+                                <li>داروهای شخصی خود را برای 2 یا 3 روز همراه داشته باشید. کلینیک‌های سیار در طول مسیر وجود دارند.</li>
+                                <li>کوله پشتی کوچک بهتر از کیسه دستی است و یک شارژر همراه داشته باشید.</li>
+                                <li>کرم پوستی مانند وازلین یا نیوآ برای جلوگیری از بثورات یا اصطکاک. بهتر است قبل از شروع پیاده‌روی استفاده شود.</li>
+                                <li>در موبایل یا کاغذ همراه داشته باشید: نوحه، سینه زنی، زیارات، ادعیه، قرآن.</li>
+                                <li><strong>کفش:</strong> کفش نو یا بسته نپوشید، کفش راحت و باز بهتر است.</li>
+                                <li>گذرنامه و ویزا، و آنها را با دقت نگهداری کنید.</li>
+                                <li>کالسکه برای کودکان در صورت خستگی و حمل لوازم آنها.</li>
+                                <li>عصا برای کمک به سالمندان در راه رفتن و کاهش خستگی.</li>
+                            </ul>
+                        `
+                    },
+                    importantNotes: {
+                        title: '📍 نکات مهم',
+                        text: `
+                            <ul>
+                                <li>تمام خدمات (غذا، نوشیدنی، اسکان، ماساژ) <strong>کاملاً رایگان</strong> است. نیازی به حمل پول زیاد نیست مگر اینکه بخواهید به موکب‌ها کمک مالی کنید.</li>
+                                <li>سرویس‌های بهداشتی موجود است و برخی موکب‌ها توالت فرنگی نیز دارند.</li>
+                                <li>اگر خسته شدید، <strong>صدها اتومبیل و اتوبوس</strong> برای انتقال شما به کربلا به راحتی در دسترس هستند.</li>
+                                <li><strong>نام و آدرس محل اقامت خود در کربلا</strong> را در یک کاغذ بنویسید، ممکن است هنگام رسیدن، شبکه موبایل قطع شود.</li>
+                                <li>اگر نیاز به تماس دارید، <strong>قبل از طلوع آفتاب</strong> این کار را انجام دهید تا از شلوغی شبکه جلوگیری شود.</li>
+                            </ul>
+                        `
+                    },
+                    recommendations: {
+                        title: '🔰 توصیه ها',
+                        text: `
+                            <ul>
+                                <li>نیت خود را برای خداوند متعال در پیاده‌روی و خدمت حسینی قرار دهید.</li>
+                                <li>نماز را در وقت خود اقامه کنید، همانطور که امام حسین (علیه السلام) در روز عاشورا انجام داد.</li>
+                                <li>روزهای اربعین را روزهای حزن و جدیت قرار دهید و از خنده نامناسب دوری کنید.</li>
+                                <li>بسیار بگویید: <strong>«اللهم صلِّ على محمد و آل محمد، و عجّل فرجهم، و العن أعداءهم، و وفّقنا للاقتداء بهم یا کریم.»</strong></li>
+                                <li>نظافت و قداست اماکن مقدس را حفظ کنید.</li>
+                                <li>خواهر مؤمنه: <strong>حجاب خود را در این اماکن مطهر</strong> بهتر و کامل‌تر از حجاب خود در کشور خود قرار دهید.</li>
+                            </ul>
+                        `
+                    }
+                }
+            }
+        };
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const diff = countdownDate - now;
+            const countdownContainer = document.getElementById('countdown-container');
+
+            if (diff <= 0) {
+                countdownContainer.style.display = 'none';
+                return;
+            } else {
+                // Only show countdown if search input is empty
+                if (document.getElementById('search').value.trim() === '') {
+                    countdownContainer.style.display = 'block';
+                } else {
+                    countdownContainer.style.display = 'none';
+                }
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            // Update values
+            document.getElementById('countdown-days-value').textContent = days.toString().padStart(2, '0');
+            document.getElementById('countdown-hours-value').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('countdown-minutes-value').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('countdown-seconds-value').textContent = seconds.toString().padStart(2, '0');
+
+            // Update labels (handle English plural for 'day')
+            document.getElementById('countdown-days-label').textContent = uiTexts[currentLang].daysUnit + (currentLang === 'en' && days !== 1 ? 's' : '');
+            document.getElementById('countdown-hours-label').textContent = uiTexts[currentLang].hoursUnit + (currentLang === 'en' && hours !== 1 ? 's' : '');
+            document.getElementById('countdown-minutes-label').textContent = uiTexts[currentLang].minutesUnit + (currentLang === 'en' && minutes !== 1 ? 's' : '');
+            document.getElementById('countdown-seconds-label').textContent = uiTexts[currentLang].secondsUnit + (currentLang === 'en' && seconds !== 1 ? 's' : '');
+        }
+
+        function renderInfoSection(lang) {
+            const infoSectionContainer = document.getElementById('info-section');
+            const texts = uiTexts[lang];
+
+            let htmlContent = `
+                <div class="info-item">
+                    <div class="info-header">
+                        <span>${texts.infoSectionTitle}</span>
+                        <span class="arrow">&#9658;</span>
+                    </div>
+                    <div class="info-content">
+            `;
+
+            for (const key in texts.infoContent) {
+                const subInfo = texts.infoContent[key];
+                htmlContent += `
+                    <div class="sub-info-item">
+                        <div class="sub-info-header">
+                            <span>${subInfo.title}</span>
+                            <span class="arrow">&#9658;</span>
+                        </div>
+                        <div class="sub-info-content">
+                            ${subInfo.text}
+                        </div>
+                    </div>
+                `;
+            }
+
+            htmlContent += `
+                    </div>
+                </div>
+            `;
+            infoSectionContainer.innerHTML = htmlContent;
+
+            // Re-attach event listeners after content is re-rendered
+            attachCollapsibleEventListeners();
+        }
+
+        function updateUIText(lang) {
+            const texts = uiTexts[lang];
+            document.querySelector('h1').textContent = texts.heading;
+            document.getElementById('countdown-title').textContent = texts.countdownTitle;
+            document.getElementById('search').placeholder = texts.searchInput;
+            document.getElementById('offline-message').textContent = texts.offlineMessage;
+            document.getElementById('no-results-message').textContent = texts.noResults;
+            document.getElementById('suggestions').innerHTML = texts.suggestions; // Update suggestions HTML
+
+            // Render info section content for the new language
+            renderInfoSection(lang);
+
+            // Re-render columns to update "العمود" text in headers if language changes
+            renderColumns(columnsData);
+        }
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('arbaeenGuideLang', lang); // Save last used language
+            document.documentElement.lang = lang;
+            document.documentElement.dir = (lang === 'en') ? 'ltr' : 'rtl';
+            updateUIText(lang);
+            loadData();
+            updateCountdown(); // Update countdown labels immediately
+        }
+
+        async function loadData() {
+            const container = document.getElementById('columns-container');
+            const offlineMessage = document.getElementById('offline-message');
+            offlineMessage.style.display = 'none'; // Hide by default
+
+            try {
+                const res = await fetch(`data-${currentLang}.json`);
+                if (!res.ok) throw new Error('Failed to load data from network.');
+                columnsData = await res.json();
+                renderColumns(columnsData);
+                // Cache data for offline use
+                if ('caches' in window) {
+                    const cache = await caches.open('arbaeen-data-cache');
+                    await cache.put(new Request(`data-${currentLang}.json`), new Response(JSON.stringify(columnsData)));
+                }
+                initializeFuse(); // Initialize Fuse.js after data loads
+            } catch (e) {
+                console.error('Error loading data:', e);
+                // Try to load from cache
+                if ('caches' in window) {
+                    const cache = await caches.open('arbaeen-data-cache');
+                    const cachedResponse = await cache.match(new Request(`data-${currentLang}.json`));
+                    if (cachedResponse) {
+                        columnsData = await cachedResponse.json();
+                        renderColumns(columnsData);
+                        offlineMessage.style.display = 'block'; // Show offline message
+                        initializeFuse();
+                    } else {
+                        container.innerHTML = `<p style="text-align:center;color:red;">${uiTexts[currentLang].noResults}</p>`;
+                    }
+                } else {
+                    container.innerHTML = `<p style="text-align:center;color:red;">${uiTexts[currentLang].noResults}</p>`;
+                }
+            }
+        }
+
+        function initializeFuse() {
+            const options = {
+                keys: [
+                    'column',
+                    'names'
+                ],
+                includeScore: true,
+                threshold: 0.3, // Lower threshold for more strict matches, higher for looser
+                ignoreLocation: true, // Search anywhere in the string
+                findAllMatches: true,
+                minMatchCharLength: 2,
+            };
+            fuse = new Fuse(columnsData, options);
+        }
+
+        function renderColumns(data) {
+            const container = document.getElementById('columns-container');
+            container.innerHTML = '';
+            if (data.length === 0) {
+                // This case is handled by the search event listener for specific no results message
+                return;
+            }
+            // Sort by column number before rendering
+            data.sort((a, b) => a.column - b.column);
+            data.forEach(col => {
+                const colDiv = document.createElement('div');
+                colDiv.className = 'column';
+                colDiv.id = 'column-' + col.column;
+
+                const namesHtml = col.names.map(name => `<div class="name-item">${name}</div>`).join('');
+                colDiv.innerHTML = `
+                    <div class="column-header">
+                        <strong>${uiTexts[currentLang].columnText}</strong>
+                        <span>${col.column.toString().padStart(2, '0')}</span>
+                    </div>
+                    <div class="name">
+                        ${namesHtml}
+                    </div>
+                `;
+
+                container.appendChild(colDiv);
+            });
+        }
+
+        document.getElementById('search').addEventListener('input', e => {
+            const q = e.target.value.trim();
+            const countdownContainer = document.getElementById('countdown-container');
+            const suggestionsElement = document.getElementById('suggestions');
+            const infoSection = document.getElementById('info-section');
+            const noResultsMessage = document.getElementById('no-results-message');
+            const columnsContainer = document.getElementById('columns-container');
+
+
+            if (q === '') {
+                // If search input is empty, show everything default
+                countdownContainer.style.display = 'block';
+                suggestionsElement.innerHTML = uiTexts[currentLang].suggestions; // Restore suggestions HTML
+                suggestionsElement.style.display = 'block';
+                infoSection.style.display = 'block';
+                noResultsMessage.style.display = 'none'; // Hide no results message
+                renderColumns(columnsData); // Render all columns
+                updateCountdown(); // Ensure countdown is visible and updated
+                return;
+            }
+
+            // If search input has text, hide default sections
+            countdownContainer.style.display = 'none';
+            infoSection.style.display = 'none';
+
+            let filteredResults = [];
+            if (fuse) {
+                const searchResults = fuse.search(q);
+                filteredResults = searchResults.map(result => result.item);
+            } else {
+                // Fallback if fuse.js isn't loaded for some reason (shouldn't happen)
+                const isNumber = !isNaN(q) && q !== '';
+                if (isNumber) {
+                    filteredResults = columnsData.filter(c => c.column.toString() === q);
+                } else {
+                    filteredResults = columnsData.filter(c =>
+                        c.names.some(name => name.toLowerCase().includes(q.toLowerCase())) ||
+                        c.column.toString().includes(q)
+                    );
+                }
+            }
+
+            renderColumns(filteredResults);
+
+            if (filteredResults.length === 0) {
+                noResultsMessage.textContent = uiTexts[currentLang].noResults;
+                noResultsMessage.style.display = 'block'; // Show "No results"
+                suggestionsElement.innerHTML = uiTexts[currentLang].suggestions; // Keep suggestions visible
+                suggestionsElement.style.display = 'block';
+                columnsContainer.innerHTML = ''; // Clear columns to only show messages
+            } else {
+                noResultsMessage.style.display = 'none'; // Hide "No results"
+                suggestionsElement.style.display = 'none'; // Hide suggestions if results are shown
+            }
+
+            // Scroll to the first result if there's only one column number match
+            if (filteredResults.length === 1 && !isNaN(q) && filteredResults[0].column.toString() === q) {
+                setTimeout(() => {
+                    document.getElementById('column-' + q)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
+        });
+
+        document.getElementById('dark-mode-toggle').addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            localStorage.setItem('arbaeenDarkMode', isDarkMode); // Save dark mode preference
+        });
+
+        // Apply dark mode preference on load
+        if (localStorage.getItem('arbaeenDarkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+
+        // JS FOR COLLAPSIBLE INFO SECTION AND SUB-SECTIONS - MODIFIED FOR SCROLLING
+        function attachCollapsibleEventListeners() {
+            const toggleCollapsible = (header) => {
+                const content = header.nextElementSibling;
+                header.classList.toggle('expanded');
+                if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                    // Currently expanded, collapse it
+                    content.style.maxHeight = null; // Reset to 0 indirectly via transition
+                    content.style.overflowY = 'hidden'; // Hide overflow immediately
+                    // Adjust padding for collapsed state
+                    if (header.classList.contains('info-header')) {
+                        content.style.padding = '0 20px';
+                    } else if (header.classList.contains('sub-info-header')) {
+                        content.style.padding = '0 0';
+                    }
+                } else {
+                    // Currently collapsed, expand it
+                    content.style.maxHeight = '9999px'; // Use a large value for full expansion
+                    // Adjust padding for expanded state
+                    if (header.classList.contains('info-header')) {
+                        content.style.padding = '15px 20px';
+                    } else if (header.classList.contains('sub-info-header')) {
+                        content.style.padding = '15px 0 0 0'; // Top padding for sub-content
+                    }
+                    // Allow scroll after transition, if content exceeds height
+                    // We need a slight delay to allow max-height transition to complete
+                    setTimeout(() => {
+                        // Check if content height is actually larger than its visible area
+                        if (content.scrollHeight > content.clientHeight) {
+                            content.style.overflowY = 'auto'; // Enable scroll if needed
+                        }
+                    }, 400); // Match this timeout with CSS transition duration
+                }
+            };
+
+            const infoHeaders = document.querySelectorAll('.info-header');
+            infoHeaders.forEach(header => {
+                header.removeEventListener('click', () => toggleCollapsible(header)); // Remove existing to prevent duplicates
+                header.addEventListener('click', () => toggleCollapsible(header));
+            });
+
+            const subInfoHeaders = document.querySelectorAll('.sub-info-header');
+            subInfoHeaders.forEach(header => {
+                header.removeEventListener('click', (event) => { // Remove existing
+                    event.stopPropagation();
+                    toggleCollapsible(header);
+                });
+                header.addEventListener('click', (event) => {
+                    event.stopPropagation(); // Prevent the parent info-header from toggling
+                    toggleCollapsible(header);
+                });
+            });
+        }
+
+
+        // Initialize UI and data
+        switchLanguage(currentLang); // Set initial language and load data based on saved preference
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Call once immediately to avoid delay
+    </script>
+</body>
+</html>
