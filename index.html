@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>حسين بن يوسف - مصمم جرافيك</title>
+
+    <link rel="preload" href="AtHaussArabic-Medium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="AtHaussArabic-Black.woff2" as="font" type="font/woff2" crossorigin>
+
+    <style>
+        /* استيراد الخط بوزنين مختلفين للخط AtHaussArabic */
+        @font-face {
+            font-family: 'AtHaussArabic';
+            src: url('AtHaussArabic-Medium.woff2') format('woff2');
+            font-weight: 500; /* وزن متوسط للملف Medium */
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'AtHaussArabic';
+            src: url('AtHaussArabic-Black.woff2') format('woff2');
+            font-weight: 900; /* وزن ثقيل للملف Black */
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* تعريف المتغيرات لتسهيل التعديل */
+        :root {
+            --primary-text-color: #222;
+            --secondary-text-color: #555;
+            --background-page-color: #f4f4f4;
+            --container-bg: rgba(255, 255, 255, 0.9);
+            --profile-border-color: #e0e0e0;
+            --shadow-light: rgba(0, 0, 0, 0.1);
+            --shadow-dark: rgba(0, 0, 0, 0.2);
+            --button-bg: #000;
+            --button-text-color: #fff;
+            --contact-box-bg-light: #e0e0e0;
+            --container-border-radius: 25px;
+            --button-border-radius: 15px;
+            --icon-size-large: 64px;
+            --icon-size-small: 54px;
+            --spacing-large: 2rem;
+            --spacing-medium: 1.5rem;
+            --spacing-small: 1rem;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'AtHaussArabic', Arial, sans-serif; /* استخدام الخط الجديد */
+            font-weight: 500; /* وزن Medium افتراضي لباقي النصوص */
+            background: var(--background-page-color) url('background.jpg') no-repeat center center/cover;
+            text-align: center;
+            color: var(--primary-text-color);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: var(--spacing-medium) 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 400px;
+            width: 90%;
+            margin: auto;
+            padding: 30px 20px;
+            background-color: var(--container-bg);
+            box-shadow: 0 5px 15px var(--shadow-light);
+            border-radius: var(--container-border-radius);
+            box-sizing: border-box;
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--profile-border-color);
+            box-shadow: 0 0 8px var(--shadow-light);
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin: 0.5rem 0 0.2rem;
+            font-weight: 900; /* استخدام الوزن Black للعناوين */
+            font-size: 1.8rem;
+        }
+
+        p.title {
+            font-size: 1.1em;
+            color: var(--secondary-text-color);
+            margin-bottom: 10px;
+        }
+
+        p.bio {
+            font-size: 0.95em;
+            color: var(--secondary-text-color);
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .contact-box {
+            background-color: var(--button-bg);
+            color: var(--button-text-color);
+            border: none;
+            border-radius: var(--button-border-radius);
+            padding: 15px 30px;
+            font-size: 1.1em;
+            font-weight: 500; /* تم تعديله ليتوافق مع AtHaussArabic-Medium */
+            cursor: pointer;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 30px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            -webkit-appearance: none;
+        }
+
+        .contact-box:hover {
+            background-color: #333;
+            transform: translateY(-3px);
+        }
+
+        .icons {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        .icons a {
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .icons a img {
+            width: var(--icon-size-large);
+            height: var(--icon-size-large);
+            filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.3));
+            object-fit: cover;
+        }
+
+        .icons a:hover img {
+            transform: scale(1.1);
+        }
+
+        .credit-text {
+            font-size: 0.7em;
+            color: var(--secondary-text-color);
+            font-weight: normal; /* "عادي" يعني 400، Medium هو 500 */
+            margin-top: 40px;
+            opacity: 0.8;
+        }
+
+        /* الاستجابة لتناسب الشاشات الصغيرة */
+        @media (max-width: 600px) {
+            body {
+                padding: var(--spacing-small) 0;
+            }
+            .container {
+                margin: var(--spacing-small);
+                width: calc(100% - var(--spacing-large));
+                padding: 25px 15px;
+            }
+            .profile-img {
+                width: 100px;
+                height: 100px;
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            p.bio {
+                font-size: 0.9em;
+            }
+            .contact-box {
+                font-size: 1em;
+                padding: 12px 25px;
+            }
+            .icons {
+                gap: 10px;
+            }
+            .icons a img {
+                width: var(--icon-size-small);
+                height: var(--icon-size-small);
+            }
+            .credit-text {
+                font-size: 0.65em;
+                margin-top: 30px;
+            }
+        }
+    </style>
+
+    <script>
+        function saveContact() {
+            window.location.href = 'contact.vcf';
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <img src="profile.jpg" alt="صورة حسين بن يوسف الشخصية" class="profile-img" />
+        <h1>حسين بن يوسف</h1>
+        <p class="title">مصمم جرافيك</p>
+        <p class="bio">أبسّط التعقيد في التصميم، وأخلق بصمة واضحة لهويتك</p>
+
+        <div class="contact-box" onclick="saveContact()">
+            احفظ جهة الاتصال لديك
+        </div>
+
+        <div class="icons">
+            <a href="https://wa.me/966598553535" target="_blank" title="واتساب">
+                <img src="whatsapp.png" alt="أيقونة واتساب" />
+            </a>
+            <a href="tel:+966598553535" title="اتصال مباشر">
+                <img src="call.png" alt="أيقونة اتصال" />
+            </a>
+            <a href="mailto:bnyosfh@gmail.com" title="إرسال بريد إلكتروني">
+                <img src="mail.png" alt="أيقونة بريد إلكتروني" />
+            </a>
+            <a href="https://drive.google.com/open?id=1YMBEHGd1lhOHDprWBBRCX6m3xiKUE9TU&usp=drive_fs" target="_blank" title="ملف أعمالي الإبداعي">
+                <img src="file.png" alt="أيقونة ملف أعمالي" />
+            </a>
+        </div>
+
+        <p class="credit-text">by @bnyosfh</p>
+    </div>
+</body>
+</html>
