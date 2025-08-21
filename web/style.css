@@ -3,29 +3,29 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     margin: 0;
     padding: 0;
-    direction: rtl; /* اتجاه الكتابة من اليمين لليسار */
+    direction: rtl;
     text-align: right;
-    background-color: #F5F5F7; /* لون رمادي فاتح جدًا */
-    color: #1D1D1F; /* لون أسود داكن للنصوص */
+    background-color: #F5F5F7;
+    color: #1D1D1F;
     line-height: 1.6;
 }
 
 .container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 40px; /* زيادة المساحة الداخلية */
+    padding: 0 40px;
 }
 
 /* --- Header & Navigation --- */
 .header {
-    background-color: rgba(255, 255, 255, 0.8); /* خلفية شفافة قليلاً */
-    backdrop-filter: blur(10px); /* تأثير ضبابي مثل iOS */
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     padding: 18px 0;
-    position: sticky; /* جعل الهيدر ثابتًا عند التمرير */
+    position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: none; /* إزالة الظل من الهيدر */
+    box-shadow: none;
 }
 
 .header .container {
@@ -34,7 +34,6 @@ body {
     align-items: center;
 }
 
-/* --- تنسيقات جديدة للشعار والصورة واليوزرنيم --- */
 .logo-link {
     text-decoration: none;
     color: inherit;
@@ -44,13 +43,13 @@ body {
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 15px; /* المسافة بين الصورة والنص */
+    gap: 15px;
 }
 
 .profile-pic {
-    width: 40px; /* حجم الصورة */
+    width: 40px;
     height: 40px;
-    border-radius: 50%; /* لجعل الصورة دائرية */
+    border-radius: 50%;
     object-fit: cover;
 }
 
@@ -63,13 +62,12 @@ body {
 }
 
 .username-tag {
-    font-size: 13px; /* حجم الخط لليوزرنيم */
-    color: #888; /* لون رمادي فاتح */
+    font-size: 13px;
+    color: #888;
     margin: 0;
     font-weight: 400;
 }
 
-/* --- تنسيقات روابط التنقل --- */
 .nav ul {
     list-style: none;
     margin: 0;
@@ -113,11 +111,11 @@ body {
 }
 
 .cta-button {
-    background-color: #007AFF; /* لون أزرق آبل */
+    background-color: #007AFF;
     color: #fff;
     padding: 15px 35px;
     text-decoration: none;
-    border-radius: 999px; /* جعل الزر دائريًا */
+    border-radius: 999px;
     font-weight: 600;
     transition: background-color 0.3s ease;
     cursor: pointer;
@@ -151,7 +149,7 @@ body {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
 }
 
-/* Reverse banner for a clean alternating pattern */
+/* عكس البنر لتحقيق نمط متبادل أنيق */
 .service-banner:nth-child(even) {
     flex-direction: row-reverse;
 }
@@ -172,10 +170,11 @@ body {
     line-height: 1.8;
 }
 
+/* تعديل حجم الصورة */
 .banner-image {
-    width: 400px;
-    height: 300px;
-    object-fit: cover;
+    width: 400px; /* حجم ثابت للعرض */
+    height: 300px; /* حجم ثابت للارتفاع */
+    object-fit: cover; /* لضمان أن الصورة تملأ المساحة بدون تشويه */
     border-radius: 12px;
 }
 
