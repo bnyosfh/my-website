@@ -138,19 +138,26 @@ body {
     margin-bottom: 50px;
 }
 
+.banner-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    margin-bottom: 60px;
+}
+
 .service-banner {
     display: flex;
     align-items: center;
     gap: 40px;
-    margin-bottom: 60px;
     padding: 40px;
     background-color: #fff;
     border-radius: 20px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* عكس البنر لتحقيق نمط متبادل أنيق */
-.service-banner:nth-child(even) {
+.banner-link:nth-child(even) .service-banner {
     flex-direction: row-reverse;
 }
 
@@ -170,12 +177,17 @@ body {
     line-height: 1.8;
 }
 
-/* تعديل حجم الصورة */
 .banner-image {
-    width: 400px; /* حجم ثابت للعرض */
-    height: 300px; /* حجم ثابت للارتفاع */
-    object-fit: cover; /* لضمان أن الصورة تملأ المساحة بدون تشويه */
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
     border-radius: 12px;
+}
+
+/* --- Hover Effect --- */
+.service-banner:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 /* --- Footer --- */
