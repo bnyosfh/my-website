@@ -1,8 +1,4 @@
 /* --- Basic Styles --- */
-/*
-   استخدام خط مقارب لخط Apple (SF Pro)
-   استخدام نظام ألوان محايد مع لمسات بسيطة
-*/
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     margin: 0;
@@ -38,7 +34,7 @@ body {
     align-items: center;
 }
 
-/* --- تنسيقات الشعار والصورة واليوزرنيم --- */
+/* --- تنسيقات جديدة للشعار والصورة واليوزرنيم --- */
 .logo-link {
     text-decoration: none;
     color: inherit;
@@ -194,34 +190,50 @@ section {
     cursor: pointer;
 }
 
-/* --- Services Section --- */
+/* --- Services Section (NEW) --- */
 .services-section {
     background-color: #FDFDFD;
 }
 
-.services-grid {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    flex-wrap: wrap;
+.services-grid-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
 }
 
-.service-item {
-    text-align: center;
-    max-width: 280px;
-}
-
-.service-item img {
-    width: 60px;
-    height: 60px;
+.service-category h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1D1D1F;
     margin-bottom: 15px;
 }
 
-.service-item h3 {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 10px;
+.service-category ul {
+    list-style-type: none; /* إزالة النقاط الافتراضية */
+    padding: 0;
+    margin: 0;
 }
+
+.service-category li {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+    position: relative;
+    padding-right: 25px; /* مسافة للنقطة المخصصة */
+}
+
+/* إضافة نقطة مخصصة لـ li */
+.service-category li::before {
+    content: '•';
+    color: #007AFF; /* لون نقطة آبل الزرقاء */
+    font-size: 20px;
+    font-weight: 700;
+    position: absolute;
+    right: 0;
+    top: -2px;
+}
+
 
 /* --- Footer --- */
 .footer {
@@ -230,67 +242,4 @@ section {
     text-align: center;
     padding: 30px 0;
     font-size: 14px;
-}
-
-/* --- Media Queries for Responsive Design --- */
-@media (max-width: 768px) {
-    /* تنسيقات عامة للشاشات الصغيرة */
-    .container {
-        padding: 0 20px;
-    }
-
-    /* تعديل الهيدر */
-    .header .container {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
-    
-    .logo-container {
-        justify-content: center;
-    }
-
-    .nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-
-    /* تعديل قسم Hero */
-    .hero-section {
-        padding: 60px 0;
-    }
-    
-    .hero-section h1 {
-        font-size: 36px;
-    }
-    
-    .hero-section p {
-        font-size: 16px;
-    }
-
-    .cta-button {
-        padding: 10px 25px;
-    }
-
-    /* تعديل قسم المشاريع */
-    .featured-projects h2,
-    .services-section h2 {
-        font-size: 32px;
-        margin-bottom: 30px;
-    }
-    
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* تعديل قسم الخدمات */
-    .services-grid {
-        flex-direction: column;
-        gap: 30px;
-    }
-    
-    .service-item {
-        max-width: 100%;
-    }
 }
