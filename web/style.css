@@ -202,11 +202,19 @@ section {
     margin-top: 50px;
 }
 
+.service-category {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+}
+
 .service-category h3 {
     font-size: 24px;
     font-weight: 600;
     color: #1D1D1F;
     margin-bottom: 15px;
+    text-align: center;
 }
 
 .service-category ul {
