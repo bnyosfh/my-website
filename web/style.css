@@ -1,4 +1,8 @@
 /* --- Basic Styles --- */
+/*
+   استخدام خط مقارب لخط Apple (SF Pro)
+   استخدام نظام ألوان محايد مع لمسات بسيطة
+*/
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     margin: 0;
@@ -34,10 +38,11 @@ body {
     align-items: center;
 }
 
-/* --- تنسيقات جديدة للشعار والصورة واليوزرنيم --- */
+/* --- تنسيقات الشعار والصورة واليوزرنيم --- */
 .logo-link {
     text-decoration: none;
     color: inherit;
+    cursor: pointer;
 }
 
 .logo-container {
@@ -119,6 +124,7 @@ body {
     border-radius: 999px; /* جعل الزر دائريًا */
     font-weight: 600;
     transition: background-color 0.3s ease;
+    cursor: pointer;
 }
 
 .cta-button:hover {
@@ -151,6 +157,7 @@ section {
     overflow: hidden;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
 }
 
 .project-item:hover {
@@ -184,6 +191,7 @@ section {
     text-decoration: none;
     font-weight: 600;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 
 /* --- Services Section --- */
@@ -222,4 +230,67 @@ section {
     text-align: center;
     padding: 30px 0;
     font-size: 14px;
+}
+
+/* --- Media Queries for Responsive Design --- */
+@media (max-width: 768px) {
+    /* تنسيقات عامة للشاشات الصغيرة */
+    .container {
+        padding: 0 20px;
+    }
+
+    /* تعديل الهيدر */
+    .header .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .logo-container {
+        justify-content: center;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* تعديل قسم Hero */
+    .hero-section {
+        padding: 60px 0;
+    }
+    
+    .hero-section h1 {
+        font-size: 36px;
+    }
+    
+    .hero-section p {
+        font-size: 16px;
+    }
+
+    .cta-button {
+        padding: 10px 25px;
+    }
+
+    /* تعديل قسم المشاريع */
+    .featured-projects h2,
+    .services-section h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* تعديل قسم الخدمات */
+    .services-grid {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .service-item {
+        max-width: 100%;
+    }
 }
