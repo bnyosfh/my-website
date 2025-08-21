@@ -1,25 +1,35 @@
-/* Basic Styles */
+/* --- Basic Styles --- */
+/*
+   استخدام خط مقارب لخط Apple (SF Pro)
+   استخدام نظام ألوان محايد مع لمسات بسيطة
+*/
 body {
-    font-family: 'Cairo', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     margin: 0;
     padding: 0;
-    direction: rtl; /* Right-to-left for Arabic */
+    direction: rtl; /* اتجاه الكتابة من اليمين لليسار */
     text-align: right;
-    background-color: #f8f8f8;
-    color: #333;
+    background-color: #F5F5F7; /* لون رمادي فاتح جدًا */
+    color: #1D1D1F; /* لون أسود داكن للنصوص */
+    line-height: 1.6;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 40px; /* زيادة المساحة الداخلية */
 }
 
-/* Header & Navigation */
+/* --- Header & Navigation --- */
 .header {
-    background-color: #fff;
-    padding: 15px 0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: rgba(255, 255, 255, 0.8); /* خلفية شفافة قليلاً */
+    backdrop-filter: blur(10px); /* تأثير ضبابي مثل iOS */
+    -webkit-backdrop-filter: blur(10px);
+    padding: 18px 0;
+    position: sticky; /* جعل الهيدر ثابتًا عند التمرير */
+    top: 0;
+    z-index: 1000;
+    box-shadow: none; /* إزالة الظل من الهيدر */
 }
 
 .header .container {
@@ -29,10 +39,10 @@ body {
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 20px;
+    font-weight: 600; /* جعل الخط أسمك قليلاً */
     text-decoration: none;
-    color: #333;
+    color: #1D1D1F;
 }
 
 .nav ul {
@@ -40,59 +50,70 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 20px;
+    gap: 30px;
 }
 
 .nav a {
     text-decoration: none;
     color: #555;
-    font-weight: 500;
+    font-weight: 400;
+    font-size: 15px;
+    transition: color 0.3s ease;
 }
 
-/* Hero Section */
+.nav a:hover {
+    color: #000;
+}
+
+/* --- Hero Section --- */
 .hero-section {
-    background-color: #f0f0f0;
-    padding: 80px 0;
+    padding: 100px 0;
     text-align: center;
+    background-color: #F5F5F7;
 }
 
 .hero-section h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
+    font-size: 56px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    line-height: 1.2;
 }
 
 .hero-section p {
-    font-size: 18px;
-    max-width: 600px;
-    margin: 0 auto 30px;
+    font-size: 20px;
+    max-width: 700px;
+    margin: 0 auto 40px;
     line-height: 1.6;
+    color: #555;
 }
 
 .cta-button {
-    background-color: #007bff;
+    background-color: #007AFF; /* لون أزرق آبل */
     color: #fff;
-    padding: 12px 30px;
+    padding: 15px 35px;
     text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
+    border-radius: 999px; /* جعل الزر دائريًا */
+    font-weight: 600;
     transition: background-color 0.3s ease;
 }
 
 .cta-button:hover {
-    background-color: #0056b3;
+    background-color: #0066CC;
 }
 
-/* Featured Projects Section */
-.featured-projects {
-    padding: 60px 0;
+/* --- Sections --- */
+section {
+    padding: 80px 0;
 }
 
 .featured-projects h2, .services-section h2 {
     text-align: center;
-    font-size: 36px;
-    margin-bottom: 40px;
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 50px;
 }
 
+/* --- Projects Grid --- */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -101,62 +122,80 @@ body {
 
 .project-item {
     background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05); /* ظل ناعم جدًا */
     overflow: hidden;
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .project-item img {
     width: 100%;
     height: 250px;
     object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
 }
 
 .project-item h3 {
-    font-size: 20px;
-    margin: 15px 0 5px;
+    font-size: 22px;
+    font-weight: 600;
+    margin: 20px 0 5px;
 }
 
 .project-item p {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 15px;
+    font-size: 16px;
+    color: #888;
+    margin-bottom: 20px;
 }
 
-/* Services Section */
+.view-project {
+    display: inline-block;
+    color: #007AFF;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* --- Services Section --- */
 .services-section {
-    background-color: #e9e9e9;
-    padding: 60px 0;
+    background-color: #FDFDFD;
 }
 
 .services-grid {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 50px;
     flex-wrap: wrap;
 }
 
 .service-item {
     text-align: center;
-    max-width: 250px;
+    max-width: 280px;
 }
 
 .service-item img {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     margin-bottom: 15px;
 }
 
-/* Footer */
+.service-item h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* --- Footer --- */
 .footer {
-    background-color: #333;
-    color: #fff;
+    background-color: #F5F5F7;
+    color: #666;
     text-align: center;
-    padding: 20px 0;
+    padding: 30px 0;
+    font-size: 14px;
 }
