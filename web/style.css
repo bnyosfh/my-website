@@ -1,6 +1,21 @@
+/* Font Definitions */
+@font-face {
+  font-family: 'AbarHighNoEn';
+  src: url('AbarHighNoEn-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AbarLowNoEn';
+  src: url('AbarLowNoEn-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
 /* --- Basic Styles --- */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: 'AbarLowNoEn', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     margin: 0;
     padding: 0;
     direction: rtl;
@@ -97,9 +112,10 @@ body {
 
 .hero-section h1 {
     font-size: 56px;
-    font-weight: 700;
+    font-weight: 800;
     margin-bottom: 25px;
     line-height: 1.2;
+    font-family: 'AbarHighNoEn', sans-serif;
 }
 
 .hero-section p {
@@ -108,6 +124,7 @@ body {
     margin: 0 auto 40px;
     line-height: 1.6;
     color: #555;
+    font-family: 'AbarLowNoEn', sans-serif;
 }
 
 /* --- Portfolio Section --- */
@@ -118,9 +135,10 @@ body {
 }
 .portfolio-section h2 {
     font-size: 40px;
-    font-weight: 700;
+    font-weight: 800;
     margin-bottom: 50px;
     padding: 0 40px;
+    font-family: 'AbarHighNoEn', sans-serif;
 }
 
 .banner-link {
@@ -187,10 +205,11 @@ body {
 
 .banner-text h3 {
     font-size: 32px;
-    font-weight: 700;
+    font-weight: 800;
     margin: 0;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease-in-out;
+    font-family: 'AbarHighNoEn', sans-serif;
 }
 
 /* تأثير تحويل الألوان والتكبير عند التمرير */
@@ -211,9 +230,10 @@ body {
 }
 .services-section h2 {
     font-size: 40px;
-    font-weight: 700;
+    font-weight: 800;
     margin-bottom: 50px;
     text-align: center;
+    font-family: 'AbarHighNoEn', sans-serif;
 }
 .services-grid {
     display: grid;
@@ -228,14 +248,16 @@ body {
 }
 .service-box h3 {
     font-size: 24px;
-    font-weight: 600;
+    font-weight: 800;
     margin-top: 0;
     margin-bottom: 15px;
+    font-family: 'AbarHighNoEn', sans-serif;
 }
 .service-box p {
     font-size: 16px;
     color: #555;
     margin: 0;
+    font-family: 'AbarLowNoEn', sans-serif;
 }
 
 /* --- Footer --- */
@@ -245,4 +267,5 @@ body {
     text-align: center;
     padding: 30px 0;
     font-size: 14px;
+    font-family: 'AbarLowNoEn', sans-serif;
 }
