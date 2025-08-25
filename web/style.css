@@ -188,9 +188,22 @@ body {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* --- Hover Effect --- */
-.service-banner:hover {
-    transform: translateY(-10px);
+/* تأثير اللمعان عند التمرير */
+.service-banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transform: skewX(-25deg);
+    transition: left 0.5s;
+    pointer-events: none;
+}
+
+.service-banner:hover::after {
+    left: 150%;
 }
 
 /* --- Services Section --- */
