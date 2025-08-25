@@ -147,36 +147,36 @@ body {
 
 .service-banner {
     display: flex;
-    flex-direction: column; /* جعل المحتوى فوق بعضه */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 300px; /* ارتفاع ثابت للبنر */
-    width: 80%; /* عرض ثابت للبنر */
+    height: 300px;
+    width: 80%;
     max-width: 800px;
-    margin: 0 auto; /* توسيط البنر */
+    margin: 0 auto;
     padding: 40px;
     border-radius: 20px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background-size: cover; /* لتغطية البنر بالكامل بالصورة */
-    background-position: center; /* لتوسيط الصورة */
-    color: #fff; /* لون النص أبيض ليظهر على الخلفيات الملونة */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
 }
 
 /* الألوان والصور الخلفية لكل بنر */
 .service-banner.brand-identity {
-    background-color: #4A4A8F; /* لون أزرق */
+    background-color: #4A4A8F;
     background-image: url('logos.png');
 }
 
 .service-banner.advertising {
-    background-color: #C83375; /* لون وردي */
+    background-color: #C83375;
     background-image: url('posters.png');
 }
 
 .service-banner.print-design {
-    background-color: #728F50; /* لون أخضر زيتوني */
+    background-color: #728F50;
     background-image: url('prints.png');
 }
 
