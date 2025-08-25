@@ -110,25 +110,9 @@ body {
     color: #555;
 }
 
-.cta-button {
-    background-color: #007AFF;
-    color: #fff;
-    padding: 15px 35px;
-    text-decoration: none;
-    border-radius: 999px;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-    cursor: pointer;
-}
-
-.cta-button:hover {
-    background-color: #0066CC;
-}
-
 /* --- Portfolio Section --- */
 .portfolio-section {
-    padding-top: 80px;
-    padding-bottom: 0;
+    padding: 80px 0 50px 0;
     background-color: #FDFDFD;
     text-align: center;
 }
@@ -145,46 +129,68 @@ body {
     display: block;
     margin-bottom: 0;
 }
+
 .service-banner {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
     height: 300px;
     width: 100%;
     max-width: none;
     margin: 0;
-    padding: 40px;
+    padding: 0;
     border-radius: 0;
-    box-shadow: none;
     background-size: cover;
     background-position: center;
     color: #fff;
+    position: relative;
+    overflow: hidden;
 }
+
+/* الألوان والصور الخلفية لكل بنر */
 .service-banner.brand-identity {
     background-color: #4A4A8F;
     background-image: url('logos.png');
 }
+
 .service-banner.advertising {
     background-color: #C83375;
     background-image: url('posters.png');
 }
+
 .service-banner.print-design {
     background-color: #728F50;
     background-image: url('prints.png');
 }
+
+/* ظل أسود متدرج من الزاوية السفلية اليمنى */
+.service-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
+}
+
 .banner-text {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    text-align: right;
+    z-index: 2;
 }
 .banner-text h3 {
     font-size: 32px;
     font-weight: 700;
-    margin: 0; /* تم إزالة الهامش من الأسفل */
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Hover Effect --- */
+.service-banner:hover {
+    transform: translateY(-10px);
 }
 
 /* --- Services Section --- */
