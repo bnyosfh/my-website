@@ -129,10 +129,10 @@ body {
 .portfolio-services {
     padding: 80px 0;
     background-color: #FDFDFD;
+    text-align: center;
 }
 
 .portfolio-services h2 {
-    text-align: center;
     font-size: 40px;
     font-weight: 700;
     margin-bottom: 50px;
@@ -147,22 +147,45 @@ body {
 
 .service-banner {
     display: flex;
+    flex-direction: column; /* جعل المحتوى فوق بعضه */
+    justify-content: center;
     align-items: center;
-    gap: 40px;
+    text-align: center;
+    height: 300px; /* ارتفاع ثابت للبنر */
+    width: 80%; /* عرض ثابت للبنر */
+    max-width: 800px;
+    margin: 0 auto; /* توسيط البنر */
     padding: 40px;
-    background-color: #fff;
     border-radius: 20px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-size: cover; /* لتغطية البنر بالكامل بالصورة */
+    background-position: center; /* لتوسيط الصورة */
+    color: #fff; /* لون النص أبيض ليظهر على الخلفيات الملونة */
 }
 
-/* عكس البنر لتحقيق نمط متبادل أنيق */
-.banner-link:nth-child(even) .service-banner {
-    flex-direction: row-reverse;
+/* الألوان والصور الخلفية لكل بنر */
+.service-banner.brand-identity {
+    background-color: #4A4A8F; /* لون أزرق */
+    background-image: url('logos.png');
+}
+
+.service-banner.advertising {
+    background-color: #C83375; /* لون وردي */
+    background-image: url('posters.png');
+}
+
+.service-banner.print-design {
+    background-color: #728F50; /* لون أخضر زيتوني */
+    background-image: url('prints.png');
 }
 
 .banner-text {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .banner-text h3 {
@@ -173,15 +196,8 @@ body {
 
 .banner-text p {
     font-size: 18px;
-    color: #555;
+    color: rgba(255, 255, 255, 0.9);
     line-height: 1.8;
-}
-
-.banner-image {
-    width: 400px;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 12px;
 }
 
 /* --- Hover Effect --- */
