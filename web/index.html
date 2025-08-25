@@ -1,216 +1,85 @@
-/* --- Basic Styles --- */
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    margin: 0;
-    padding: 0;
-    direction: rtl;
-    text-align: right;
-    background-color: #F5F5F7;
-    color: #1D1D1F;
-    line-height: 1.6;
-}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بورتفوليو حسين بن يوسف - مصمم جرافيك</title>
+    
+    <link rel="icon" href="icone.ico" type="image/x-icon">
+    
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
 
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 40px;
-}
+    <header class="header">
+        <div class="container">
+            <a href="https://bnyosfh.com" class="logo-link">
+                <div class="logo-container">
+                    <img src="bnyosfh2.png" alt="صورة الملف الشخصي" class="profile-pic">
+                    <div>
+                        <span class="logo">حسين بن يوسف</span>
+                        <p class="username-tag">@bnyosfh</p>
+                    </div>
+                </div>
+            </a>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#about">عني</a></li>
+                    <li><a href="#portfolio-services">أعمالي وخدماتي</a></li>
+                    <li><a href="https://bnyosfh.com">اتصل بي</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-/* --- Header & Navigation --- */
-.header {
-    background-color: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    padding: 18px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: none;
-}
+    <section class="hero-section">
+        <div class="container">
+            <h1>مصمم جرافيك يحول الأفكار إلى فن بصري</h1>
+            <p>أنا حسين بن يوسف، مصمم جرافيك متخصص في تصميم الإعلانات والحملات التسويقية، والهويات البصرية، والمطبوعات. أسعى إلى ابتكار تصاميم فريدة ومؤثرة تروي قصة كل علامة تجارية بأسلوب بصري مميز.</p>
+            <a href="#portfolio-services" class="cta-button">اكتشف أعمالي</a>
+        </div>
+    </section>
 
-.header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+    <section id="portfolio-services" class="portfolio-services">
+        <div class="container">
+            <h2>أعمالي وخدماتي</h2>
 
-.logo-link {
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
-}
+            <a href="your-brand-identity-projects-page.html" class="banner-link">
+                <div class="service-banner brand-identity">
+                    <div class="banner-text">
+                        <h3>تصميم الهويات البصرية</h3>
+                        <p>الشعارات المميزة والأنظمة البصرية المتكاملة. <br> إعداد دليل استخدام الهوية. <br> تطوير الألوان والأنماط البصرية. <br> ابتكار هويات جديدة أو تحديث هويات قديمة لتواكب العصر.</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="your-advertising-projects-page.html" class="banner-link">
+                <div class="service-banner advertising">
+                    <div class="banner-text">
+                        <h3>تصميم الإعلانات والتسويق</h3>
+                        <p>الإعلانات للمنصات الرقمية والمطبوعة. <br> إعداد حملات تسويقية بصرية متكاملة. <br> بوستات وقوالب احترافية لوسائل التواصل الاجتماعي. <br> بنرات ولوحات دعائية وصور غلاف للمنصات.</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="your-print-projects-page.html" class="banner-link">
+                <div class="service-banner print-design">
+                    <div class="banner-text">
+                        <h3>تصميم المطبوعات والتقارير</h3>
+                        <p>بروشورات وكتيبات تعريفية. <br> بطاقات عمل، ملصقات، وأغلفة منتجات. <br> مجلات وكتب احترافية بتصميم عصري. <br> تقارير سنوية وملفات رسمية وبروفايلات شركات.</p>
+                    </div>
+                </div>
+            </a>
+            
+        </div>
+    </section>
 
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 حسين بن يوسف. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
 
-.profile-pic {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.logo {
-    font-size: 20px;
-    font-weight: 600;
-    color: #1D1D1F;
-    display: block;
-    line-height: 1.2;
-}
-
-.username-tag {
-    font-size: 13px;
-    color: #888;
-    margin: 0;
-    font-weight: 400;
-}
-
-.nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 30px;
-}
-
-.nav a {
-    text-decoration: none;
-    color: #555;
-    font-weight: 400;
-    font-size: 15px;
-    transition: color 0.3s ease;
-}
-
-.nav a:hover {
-    color: #000;
-}
-
-/* --- Hero Section --- */
-.hero-section {
-    padding: 100px 0;
-    text-align: center;
-    background-color: #F5F5F7;
-}
-
-.hero-section h1 {
-    font-size: 56px;
-    font-weight: 700;
-    margin-bottom: 25px;
-    line-height: 1.2;
-}
-
-.hero-section p {
-    font-size: 20px;
-    max-width: 700px;
-    margin: 0 auto 40px;
-    line-height: 1.6;
-    color: #555;
-}
-
-.cta-button {
-    background-color: #007AFF;
-    color: #fff;
-    padding: 15px 35px;
-    text-decoration: none;
-    border-radius: 999px;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-    cursor: pointer;
-}
-
-.cta-button:hover {
-    background-color: #0066CC;
-}
-
-/* --- Portfolio & Services Section (Merged) --- */
-.portfolio-services {
-    padding: 80px 0;
-    background-color: #FDFDFD;
-    text-align: center;
-}
-
-.portfolio-services h2 {
-    font-size: 40px;
-    font-weight: 700;
-    margin-bottom: 50px;
-}
-
-.banner-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    margin-bottom: 60px;
-}
-
-.service-banner {
-    display: flex;
-    flex-direction: column; /* جعل المحتوى فوق بعضه */
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 300px; /* ارتفاع ثابت للبنر */
-    width: 80%; /* عرض ثابت للبنر */
-    max-width: 800px;
-    margin: 0 auto; /* توسيط البنر */
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background-size: cover; /* لتغطية البنر بالكامل بالصورة */
-    background-position: center; /* لتوسيط الصورة */
-    color: #fff; /* لون النص أبيض ليظهر على الخلفيات الملونة */
-}
-
-/* الألوان والصور الخلفية لكل بنر */
-.service-banner.brand-identity {
-    background-color: #4A4A8F; /* لون أزرق */
-    background-image: url('logos.png');
-}
-
-.service-banner.advertising {
-    background-color: #C83375; /* لون وردي */
-    background-image: url('posters.png');
-}
-
-.service-banner.print-design {
-    background-color: #728F50; /* لون أخضر زيتوني */
-    background-image: url('prints.png');
-}
-
-.banner-text {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.banner-text h3 {
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 15px;
-}
-
-.banner-text p {
-    font-size: 18px;
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1.8;
-}
-
-/* --- Hover Effect --- */
-.service-banner:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
-
-/* --- Footer --- */
-.footer {
-    background-color: #F5F5F7;
-    color: #666;
-    text-align: center;
-    padding: 30px 0;
-    font-size: 14px;
-}
+</body>
+</html>
