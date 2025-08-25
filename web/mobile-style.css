@@ -1,0 +1,98 @@
+/* --- Mobile-Specific Styles --- */
+
+/* Basic Layout Adjustments */
+body {
+    direction: rtl;
+    text-align: right;
+    font-family: 'AbarLowNoEn', sans-serif;
+}
+
+.container {
+    padding: 0 20px;
+}
+
+/* Header & Navigation */
+.header .container {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.logo-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.nav a {
+    font-size: 16px;
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 60px 0;
+}
+
+.hero-section h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.hero-section p {
+    font-size: 18px;
+    text-align: center;
+}
+
+/* Portfolio & Services Sections */
+.portfolio-section, .services-section {
+    padding: 40px 0;
+}
+
+.portfolio-section h2, .services-section h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Banners */
+.banner-text {
+    bottom: 25px;
+    right: 25px;
+    text-align: right;
+}
+
+.banner-text h3 {
+    font-size: 24px;
+}
+
+/* Services Grid */
+.services-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.service-box {
+    padding: 25px;
+}
+
+.service-box h3 {
+    font-size: 20px;
+}
+
+.service-box p {
+    font-size: 15px;
+}
+
+/* Footer */
+.footer {
+    padding: 20px 0;
+}
