@@ -125,18 +125,18 @@ body {
     background-color: #0066CC;
 }
 
-/* --- Portfolio & Services Section (Merged) --- */
-.portfolio-services {
-    padding: 80px 0;
+/* --- Portfolio Section --- */
+.portfolio-section {
+    padding-top: 80px;
+    padding-bottom: 0;
     background-color: #FDFDFD;
     text-align: center;
 }
-
-.portfolio-services h2 {
+.portfolio-section h2 {
     font-size: 40px;
     font-weight: 700;
     margin-bottom: 50px;
-    padding: 0 40px; /* لإعادة المسافة للنص */
+    padding: 0 40px;
 }
 
 .banner-link {
@@ -145,7 +145,6 @@ body {
     display: block;
     margin-bottom: 0;
 }
-
 .service-banner {
     display: flex;
     flex-direction: column;
@@ -163,23 +162,18 @@ body {
     background-position: center;
     color: #fff;
 }
-
-/* الألوان والصور الخلفية لكل بنر */
 .service-banner.brand-identity {
     background-color: #4A4A8F;
     background-image: url('logos.png');
 }
-
 .service-banner.advertising {
     background-color: #C83375;
     background-image: url('posters.png');
 }
-
 .service-banner.print-design {
     background-color: #728F50;
     background-image: url('prints.png');
 }
-
 .banner-text {
     flex: 1;
     display: flex;
@@ -187,23 +181,44 @@ body {
     justify-content: center;
     align-items: center;
 }
-
 .banner-text h3 {
     font-size: 32px;
     font-weight: 700;
+    margin: 0; /* تم إزالة الهامش من الأسفل */
+}
+
+/* --- Services Section --- */
+.services-section {
+    padding: 80px 0;
+    background-color: #F5F5F7;
+}
+.services-section h2 {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 50px;
+    text-align: center;
+}
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+.service-box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+.service-box h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 0;
     margin-bottom: 15px;
 }
-
-.banner-text p {
-    font-size: 18px;
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1.8;
-}
-
-/* --- Hover Effect --- */
-.service-banner:hover {
-    transform: none;
-    box-shadow: none;
+.service-box p {
+    font-size: 16px;
+    color: #555;
+    margin: 0;
 }
 
 /* --- Footer --- */
