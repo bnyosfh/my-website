@@ -142,7 +142,7 @@ body {
     text-decoration: none;
     color: inherit;
     display: block;
-    margin-bottom: 60px;
+    margin-bottom: 0; /* تم إزالة المسافة بين البنرات */
 }
 
 .service-banner {
@@ -152,13 +152,12 @@ body {
     align-items: center;
     text-align: center;
     height: 300px;
-    width: 80%;
-    max-width: 800px;
-    margin: 0 auto;
+    width: 100%; /* العرض الآن 100% ليملأ الصفحة */
+    max-width: none; /* إزالة الحد الأقصى للعرض */
+    margin: 0; /* إزالة الهوامش */
     padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 0; /* إزالة الانحناءات لجعلها مربعة */
+    box-shadow: none; /* إزالة الظل */
     background-size: cover;
     background-position: center;
     color: #fff;
@@ -202,8 +201,8 @@ body {
 
 /* --- Hover Effect --- */
 .service-banner:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transform: none; /* إزالة الحركة */
+    box-shadow: none; /* إزالة الظل عند التحريك */
 }
 
 /* --- Footer --- */
