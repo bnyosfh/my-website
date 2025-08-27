@@ -122,7 +122,7 @@ body {
 }
 
 .hero-section h1 {
-    font-size: 56px;
+    font-size: 64px; /* تم تعديل حجم الخط الرئيسي هنا */
     font-weight: 800;
     margin-bottom: 25px;
     line-height: 1.2;
@@ -130,7 +130,7 @@ body {
 }
 
 .hero-section p {
-    font-size: 20px;
+    font-size: 24px; /* تم تعديل حجم خط الفقرة هنا */
     max-width: 700px;
     margin: 0 auto 40px;
     line-height: 1.6;
