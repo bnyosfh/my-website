@@ -106,7 +106,7 @@ body {
 /* --- Main Hero Banner (New Section) --- */
 .main-hero-banner {
     width: 100%;
-    height: 900px; /* الارتفاع المحدث ليناسب الصورة الجديدة */
+    height: 600px; /* الارتفاع المحدث ليناسب الصورة الجديدة */
     background-image: url('hero-banner.png'); /* اسم ملف الصورة المحدث */
     background-size: cover;
     background-position: center;
