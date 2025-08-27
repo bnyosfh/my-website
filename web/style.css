@@ -1,7 +1,7 @@
 /* Font Definitions */
 @font-face {
   font-family: 'AbarHighNoEn';
-  src: url('AbarHighNoNo-ExtraBold.woff2') format('woff2');
+  src: url('AbarHighNoEn-ExtraBold.woff2') format('woff2');
   font-weight: 800;
   font-style: normal;
 }
@@ -116,7 +116,7 @@ body {
 
 /* --- Hero Section (Section with "مصمم جرافيك..." text) --- */
 .hero-section {
-    padding: 60px 0; /* تم تقليل الـ padding هنا لتصغير الهوامش */
+    padding: 60px 0;
     text-align: center;
     background-color: #F5F5F7;
 }
