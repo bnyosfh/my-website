@@ -100,8 +100,16 @@ body {
   margin-bottom: 25px;
   line-height: 1.2;
   font-family: 'AbarHighNoEn', sans-serif;
-  white-space: normal;   /* يخلي النص ينكسر طبيعي */
-  text-align: center;    /* يوسّط النص */
+  white-space: nowrap;   /* سطر واحد للديسكتوب */
+  text-align: center;
+}
+
+/* للجوال */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 36px;
+    white-space: normal;  /* يخليه ينكسر لسطرين */
+  }
 }
 .hero-section p {
   font-size: 24px;
