@@ -41,8 +41,8 @@
     max-width:900px; margin:0 auto 16px; padding:0 20px; text-align:center;
   }
 
-  /* الشبكة فل عرض بدون هوامش: عمودين */
-.projects-grid.no-gap{ grid-template-columns:repeat(2, 1fr); }
+  /* الشبكة فل عرض: عمودان بالموبايل حسب طلبك */
+  .projects-grid.no-gap{ grid-template-columns:repeat(2, 1fr); }
 
   /* بطاقات الخدمات */
   .services-grid{ grid-template-columns:1fr; gap:20px; }
