@@ -100,7 +100,7 @@ body {
   margin-bottom: 25px;
   line-height: 1.2;
   font-family: 'AbarHighNoEn', sans-serif;
-  white-space: nowrap;
+  white-space: nowrap;   /* هذي اللي تسوي المشكلة */
 }
 .hero-section p {
   font-size: 24px;
