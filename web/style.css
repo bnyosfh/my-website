@@ -286,3 +286,88 @@ body {
   .services-grid { gap: 20px; }
   .projects-grid.no-gap { grid-template-columns: 1fr; }
 }
+/* ====== Responsive بدون ملفات إضافية ====== */
+
+/* قواعد عامة */
+@media (max-width: 1200px) {
+  .container { padding: 0 28px; }
+}
+
+/* تابلت وما دون */
+@media (max-width: 1024px) {
+  .container { padding: 0 24px; }
+
+  /* الهيدر يلف بشكل مرتب */
+  .header .container { flex-wrap: wrap; gap: 12px; }
+  .nav ul { gap: 16px; flex-wrap: wrap; }
+
+  /* الهيرو */
+  .main-hero-banner { height: 420px; }
+  .hero-section { padding: 40px 0; }
+  .hero-section h1 { font-size: 48px; white-space: nowrap; text-align: center; }
+  .hero-section p { font-size: 18px; }
+
+  /* عناوين الأقسام */
+  .portfolio-section h2,
+  .services-section h2,
+  .page-title { font-size: 34px; }
+
+  /* شبكة الشعارات (بدون فراغات يمين/يسار) */
+  .projects-grid.no-gap { 
+    grid-template-columns: repeat(2, 1fr); /* من 3 إلى 2 أعمدة */
+  }
+
+  /* الخدمات */
+  .services-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+
+/* موبايل */
+@media (max-width: 640px) {
+  .container { padding: 0 16px; }
+
+  /* الهيدر */
+  .profile-pic { width: 34px; height: 34px; }
+  .logo { font-size: 18px; }
+  .username-tag { display: none; }
+
+  /* الهيرو */
+  .main-hero-banner { height: 320px; }
+  .hero-section h1 { font-size: 32px; white-space: normal; } /* يكسر سطر طبيعي */
+  .hero-section p { font-size: 16px; margin-bottom: 20px; }
+
+  /* العنوان + الوصف في صفحة الشعارات: بهوامش للقراءة */
+  .projects-header,
+  .page-title,
+  .page-description {
+    max-width: 900px;
+    margin: 0 auto 16px;
+    padding: 0 20px;       /* هوامش يمين/يسار للنص فقط */
+    text-align: center;
+  }
+
+  /* شبكة الشعارات تظل فل عرض بدون هوامش */
+  .projects-grid.no-gap { 
+    margin: 0; padding: 0; width: 100%;
+    grid-template-columns: 1fr; /* عمود واحد في الجوال */
+  }
+
+  /* بطاقات الخدمات */
+  .services-grid { grid-template-columns: 1fr; gap: 20px; }
+  .service-box { padding: 20px; border-radius: 12px; }
+}
+
+/* لو شبكتك مستطيلات: تأكد من النسبة هنا */
+.projects-grid.no-gap .project-item { padding-top: 65%; } /* مستطيل أفقي */
+.projects-grid.no-gap .project-item img { object-fit: cover; }
+
+/* العنوان + الوصف في صفحة الشعارات بهوامش، الشبكة بلا هوامش */
+.projects-page { margin: 0; padding: 0; }
+.projects-grid.no-gap { margin: 0; padding: 0; width: 100%; }
+.projects-header,
+.page-title,
+.page-description {
+  max-width: 900px;
+  margin: 0 auto 20px;
+  padding: 0 20px;        /* بس النص عنده هوامش يمين/يسار */
+  text-align: center;
+}
