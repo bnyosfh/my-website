@@ -1,210 +1,86 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بورتفوليو حسين بن يوسف - (الموبايل)</title>
-    
-    <link rel="icon" href="icone.ico" type="image/x-icon">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-    
-    <style>
-        body {
-            font-family: 'Cairo', sans-serif;
-            direction: rtl;
-            text-align: right;
-            background-color: #F5F5F7;
-            color: #1D1D1F;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 95%; /* زيادة العرض على الموبايل */
-            margin: 0 auto;
-            padding: 0 15px; /* مساحة داخلية مناسبة */
-        }
-        
-        /* --- Header --- */
-        .header {
-            padding: 15px 0;
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* ظل خفيف */
-            text-align: center;
-        }
-        .logo-container {
-            display: flex;
-            align-items: center;
-            justify-content: center; /* توسيط الشعار */
-            gap: 10px;
-        }
-        .profile-pic {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        .logo {
-            font-size: 20px;
-            font-weight: 700;
-        }
-        .username-tag {
-            font-size: 13px;
-            color: #888;
-            margin: 0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>موقعي | نسخة الجوال</title>
 
-        /* --- Hero Section --- */
-        .hero-section {
-            padding: 60px 0;
-            text-align: center;
-        }
-        .hero-section h1 {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-        .hero-section p {
-            font-size: 16px;
-            color: #555;
-            margin-bottom: 30px;
-        }
-        .cta-button {
-            display: inline-block; /* لجعله يتوسط بشكل صحيح */
-            background-color: #007AFF;
-            color: #fff;
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 999px;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-        }
-        .cta-button:active {
-            background-color: #005bb5;
-        }
-        
-        /* --- Services & Portfolio Section --- */
-        .portfolio-services {
-            padding: 50px 0;
-        }
-        .portfolio-services h2 {
-            font-size: 28px;
-            text-align: center;
-            margin-bottom: 30px;
-            font-weight: 700;
-        }
-        .banner-link {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            margin-bottom: 25px; /* تقليل المسافة بين البنرات */
-            border-radius: 15px; /* لجعل الزوايا متناسقة */
-            overflow: hidden; /* لإخفاء أي جزء خارج الحدود */
-        }
-        .service-banner {
-            display: flex;
-            flex-direction: column;
-            background-color: #fff;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .banner-link:active .service-banner {
-            transform: scale(0.98); /* تأثير ضغط عند النقر */
-        }
-        .banner-image {
-            width: 100%;
-            height: 200px; /* ارتفاع ثابت للصور */
-            object-fit: cover; /* للتأكد من أن الصورة تغطي المساحة */
-        }
-        .banner-text {
-            padding: 20px;
-            text-align: center;
-        }
-        .banner-text h3 {
-            font-size: 20px;
-            margin: 0 0 10px;
-        }
-        .banner-text p {
-            font-size: 14px;
-            color: #555;
-            margin: 0;
-        }
-        
-        /* --- Footer --- */
-        .footer {
-            text-align: center;
-            padding: 20px 0;
-            font-size: 12px;
-            color: #666;
-            background-color: #F5F5F7;
-        }
-    </style>
+  <!-- أيقونة الموقع -->
+  <link rel="icon" href="icone.ico" type="image/x-icon">
+
+  <!-- ملف التنسيقات الخاص بالجوال -->
+  <link rel="stylesheet" href="mobile-style.css">
 </head>
 <body>
 
-    <header class="header">
-        <div class="container">
-            <div class="logo-container">
-                <img src="bnyosfh2.png" alt="صورة الملف الشخصي" class="profile-pic">
-                <div>
-                    <span class="logo">حسين بن يوسف</span>
-                    <p class="username-tag">@bnyosfh</p>
-                </div>
-            </div>
+  <!-- الهيدر -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo-link">
+        <div class="logo-container">
+          <img src="bnyosfh2.png" alt="صورة الملف الشخصي" class="profile-pic">
+          <div>
+            <span class="logo">حسين بن يوسف</span>
+            <p class="username-tag">@bnyosfh</p>
+          </div>
         </div>
-    </header>
+      </a>
+      <nav class="nav">
+        <ul>
+          <li><a href="mobile.html#about">عني</a></li>
+          <li><a href="mobile.html#portfolio">أعمالي</a></li>
+          <li><a href="mobile.html#services">خدماتي</a></li>
+          <li><a href="https://bnyosfh.com">اتصل بي</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <section class="hero-section">
-        <div class="container">
-            <h1>مصمم جرافيك يحول الأفكار إلى فن بصري</h1>
-            <p>أنا حسين بن يوسف، مصمم جرافيك متخصص في تصميم الإعلانات، الهويات البصرية، والمطبوعات.</p>
-            <a href="#portfolio-services" class="cta-button">تصفح أعمالي</a>
-        </div>
-    </section>
+  <!-- قسم الهيرو -->
+  <section class="hero-section">
+    <h1>مصمم جرافيك يحول الأفكار إلى فن بصري</h1>
+    <p>
+      أنا حسين بن يوسف، مصمم جرافيك متخصص في تصميم الإعلانات والحملات التسويقية، والهويات البصرية، والمطبوعات.<br>
+      أسعى إلى ابتكار تصاميم فريدة ومؤثرة تروي قصة كل علامة تجارية بأسلوب بصري مميز.
+    </p>
+  </section>
 
-    <section id="portfolio-services" class="portfolio-services">
-        <div class="container">
-            <h2>أعمالي وخدماتي</h2>
+  <!-- قسم الأعمال -->
+  <section class="portfolio-section" id="portfolio">
+    <h2>أعمالي</h2>
+    <div class="projects-grid no-gap">
+      <div class="project-item"><img src="logos/logo_01.png" alt="مشروع 1"></div>
+      <div class="project-item"><img src="logos/logo_02.png" alt="مشروع 2"></div>
+      <div class="project-item"><img src="logos/logo_03.png" alt="مشروع 3"></div>
+      <div class="project-item"><img src="logos/logo_04.png" alt="مشروع 4"></div>
+      <div class="project-item"><img src="logos/logo_05.png" alt="مشروع 5"></div>
+      <div class="project-item"><img src="logos/logo_06.png" alt="مشروع 6"></div>
+    </div>
+  </section>
 
-            <a href="your-brand-identity-projects-page.html" class="banner-link">
-                <div class="service-banner">
-                    <img src="project1.png" alt="مشروع تصميم هوية بصرية" class="banner-image">
-                    <div class="banner-text">
-                        <h3>تصميم الهويات البصرية</h3>
-                        <p>الشعارات، دليل الهوية، تطوير الألوان والأنماط.</p>
-                    </div>
-                </div>
-            </a>
-            
-            <a href="your-advertising-projects-page.html" class="banner-link">
-                <div class="service-banner">
-                    <img src="project2.png" alt="مشروع تصميم إعلانات" class="banner-image">
-                    <div class="banner-text">
-                        <h3>تصميم الإعلانات والتسويق</h3>
-                        <p>حملات تسويقية، بوستات، بنرات إعلانية.</p>
-                    </div>
-                </div>
-            </a>
-            
-            <a href="your-print-projects-page.html" class="banner-link">
-                <div class="service-banner">
-                    <img src="project3.png" alt="مشروع تصميم مطبوعات" class="banner-image">
-                    <div class="banner-text">
-                        <h3>تصميم المطبوعات والتقارير</h3>
-                        <p>بروشورات، بطاقات عمل، أغلفة ومنتجات.</p>
-                    </div>
-                </div>
-            </a>
+  <!-- قسم الخدمات -->
+  <section class="services-section" id="services">
+    <h2>خدماتي</h2>
+    <div class="services-grid">
+      <div class="service-box">
+        <h3>تصميم الهوية البصرية</h3>
+        <p>ابتكار شعارات وأنظمة بصرية متكاملة تعبر عن شخصية العلامة التجارية.</p>
+      </div>
+      <div class="service-box">
+        <h3>الإعلانات والحملات</h3>
+        <p>تصميم إعلانات وحملات تسويقية مؤثرة وملفتة للنظر.</p>
+      </div>
+      <div class="service-box">
+        <h3>المطبوعات والتقارير</h3>
+        <p>تصميم مطبوعات وتقارير رسمية بأسلوب أنيق وسهل القراءة.</p>
+      </div>
+    </div>
+  </section>
 
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 حسين بن يوسف. جميع الحقوق محفوظة.</p>
-        </div>
-    </footer>
+  <!-- الفوتر -->
+  <footer class="footer">
+    <p>&copy; 2024 حسين بن يوسف. جميع الحقوق محفوظة.</p>
+  </footer>
 
 </body>
 </html>
