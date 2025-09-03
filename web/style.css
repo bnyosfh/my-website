@@ -100,7 +100,8 @@ body {
   margin-bottom: 25px;
   line-height: 1.2;
   font-family: 'AbarHighNoEn', sans-serif;
-  white-space: nowrap;   /* هذي اللي تسوي المشكلة */
+  white-space: normal;   /* يخلي النص ينكسر طبيعي */
+  text-align: center;    /* يوسّط النص */
 }
 .hero-section p {
   font-size: 24px;
