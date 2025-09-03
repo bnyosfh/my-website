@@ -1,98 +1,57 @@
-/* --- Mobile-Specific Styles --- */
-
-/* Basic Layout Adjustments */
+/* تنسيقات مخصصة للجوال */
 body {
-    direction: rtl;
-    text-align: right;
-    font-family: 'AbarLowNoEn', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  padding: 0 10px;
+  margin: 0;
 }
 
-.container {
-    padding: 0 20px;
-}
-
-/* Header & Navigation */
+/* الهيدر */
 .header .container {
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
 }
-
-.logo-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
 .nav ul {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    margin-top: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
-.nav a {
-    font-size: 16px;
+/* البانر */
+.main-hero-banner {
+  height: 280px;
 }
 
-/* Hero Section */
-.hero-section {
-    padding: 60px 0;
-}
-
+/* النصوص */
 .hero-section h1 {
-    font-size: 36px;
-    text-align: center;
+  font-size: 28px;
+  white-space: normal; /* يسمح للنص ينكسر */
 }
-
 .hero-section p {
-    font-size: 18px;
-    text-align: center;
+  font-size: 16px;
+  margin-bottom: 20px;
 }
 
-/* Portfolio & Services Sections */
-.portfolio-section, .services-section {
-    padding: 40px 0;
+/* الشبكة (الأعمال) */
+.projects-grid.no-gap {
+  grid-template-columns: 1fr; /* عمود واحد */
+}
+.projects-grid.no-gap .project-item {
+  padding-top: 70%; /* مستطيل مناسب للجوال */
 }
 
-.portfolio-section h2, .services-section h2 {
-    font-size: 32px;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-/* Banners */
-.banner-text {
-    bottom: 25px;
-    right: 25px;
-    text-align: right;
-}
-
-.banner-text h3 {
-    font-size: 24px;
-}
-
-/* Services Grid */
+/* الخدمات */
 .services-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  grid-template-columns: 1fr; /* عنصر واحد لكل صف */
+  gap: 20px;
 }
-
 .service-box {
-    padding: 25px;
+  padding: 20px;
+  border-radius: 12px;
 }
 
-.service-box h3 {
-    font-size: 20px;
-}
-
-.service-box p {
-    font-size: 15px;
-}
-
-/* Footer */
+/* الفوتر */
 .footer {
-    padding: 20px 0;
+  font-size: 12px;
+  padding: 20px 0;
 }
