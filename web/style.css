@@ -44,11 +44,13 @@ body {
 
 .header {
   background-color: #fff;
-  padding: 18px 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: none;
+  padding: 12px 0;
+  position: fixed;       /* يخليه ثابت */
+  top: 0;                /* يثبت فوق */
+  left: 0;
+  width: 100%;           /* يغطي عرض الصفحة */
+  z-index: 1000;         /* يخليه فوق أي عنصر */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* ظل خفيف تحت */
 }
 @supports ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
   .header {
