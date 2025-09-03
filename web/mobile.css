@@ -1,15 +1,50 @@
-/* ====== تابلت (≤ 1024px) ====== */
-@media (max-width: 1024px) {
-  .projects-grid.no-gap { grid-template-columns: repeat(2, 1fr); }
-  .hero-section h1 { font-size: 48px; }
-  .services-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+/* عام */
+@media (max-width: 1200px){
+  .container{ padding:0 28px; }
 }
 
-/* ====== موبايل (≤ 640px) ====== */
-@media (max-width: 640px) {
-  .hero-section h1 { font-size: 32px; white-space: normal; }
-  .hero-section p { font-size: 16px; }
+/* تابلت */
+@media (max-width: 1024px){
+  .container{ padding:0 24px; }
+  .header .container{ flex-wrap:wrap; gap:12px; }
+  .nav ul{ gap:16px; flex-wrap:wrap; }
 
-  .projects-grid.no-gap { grid-template-columns: 1fr; }
-  .services-grid { grid-template-columns: 1fr; gap: 20px; }
+  .main-hero-banner{ height:420px; }
+  .hero-section{ padding:40px 0; }
+  .hero-section h1{ font-size:48px; white-space:nowrap; text-align:center; }
+  .hero-section p{ font-size:18px; }
+
+  .portfolio-section h2,
+  .services-section h2,
+  .page-title{ font-size:34px; }
+
+  /* الشعارات: 2 عمود */
+  .projects-grid.no-gap{ grid-template-columns:repeat(2, 1fr); }
+
+  /* الخدمات: عمودان */
+  .services-grid{ grid-template-columns:repeat(2, minmax(0,1fr)); }
+}
+
+/* موبايل */
+@media (max-width: 640px){
+  .container{ padding:0 16px; }
+  .profile-pic{ width:34px; height:34px; }
+  .logo{ font-size:18px; }
+  .username-tag{ display:none; }
+
+  .main-hero-banner{ height:320px; }
+  .hero-section h1{ font-size:32px; white-space:normal; } /* يكسر طبيعي */
+  .hero-section p{ font-size:16px; margin-bottom:20px; }
+
+  /* عنوان ووصف صفحة الشعارات: بهوامش للقراءة */
+  .projects-header, .page-title, .page-description{
+    max-width:900px; margin:0 auto 16px; padding:0 20px; text-align:center;
+  }
+
+  /* الشبكة فل عرض بدون هوامش: عمود واحد */
+  .projects-grid.no-gap{ grid-template-columns:1fr; }
+
+  /* بطاقات الخدمات */
+  .services-grid{ grid-template-columns:1fr; gap:20px; }
+  .service-box{ padding:20px; border-radius:12px; }
 }
