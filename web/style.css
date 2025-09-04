@@ -339,12 +339,43 @@ body {
   align-items: center;
 }
 /* لأننا خلّينا .header نفسها فليكس، خفّف تنسيقات .container داخلها */
-.header .container{
+/* الحاوية الرئيسية داخل الهيدر */
+.header .container {
   display: flex;
-  align-items: center;
+  align-items: center;          /* توسيط عمودي */
   justify-content: space-between;
-  padding: 0;      /* ما نحتاج حشوة داخلية زيادة */
   width: 100%;
+  padding: 0 24px;              /* هامش يمين/يسار داخل الصندوق */
+  box-sizing: border-box;
+}
+
+/* قائمة الروابط */
+.nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 28px;                    /* المسافة بين العناصر */
+  align-items: center;          /* توسيط عمودي */
+}
+
+/* الرابط نفسه */
+.nav a {
+  display: inline-flex;         /* أيقونة + نص على خط واحد */
+  align-items: center;
+  gap: 8px;                     /* مسافة بين الأيقونة والنص */
+  text-decoration: none;
+  color: #333;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 6px 10px;            /* شوية padding حول كل عنصر */
+  border-radius: 8px;
+  transition: background .3s ease;
+}
+
+/* تأثير عند المرور */
+.nav a:hover {
+  background: rgba(255,255,255,0.3);
 }
 
 /* عشان المحتوى ما يختبي تحت الهيدر الثابت */
