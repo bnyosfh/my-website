@@ -31,7 +31,7 @@ body {
   padding: 0;
   direction: rtl;
   text-align: right;
-  background-color: var(--bg);
+ background-color: #fff;
   color: var(--text);
   line-height: 1.6;
 }
@@ -80,13 +80,15 @@ body {
   transition: color .3s ease;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  padding-right: 2px; /* تزحيف لليمين */
+  
 }
 .nav a:hover { color: #000; }
 
 /* إظهار النص وإخفاء الأيقونة على الديسكتوب */
-.nav a i { display: none; }
-.nav a span { display: inline; }
+.nav a i { display: inline-block; }  /* أظهر الأيقونة */
+.nav a span { display: inline; }     /* النص يبقى */
 
 .main-hero-banner {
   width: 100%;
@@ -306,4 +308,59 @@ body {
 /* علشان أي قسم يجي بعد الهيدر ما يختفي وراه */
 body {
   padding-top: 90px;  /* نفس ارتفاع الهيدر */
+}
+/* قيَم مرنة للهيدر */
+:root{
+  --header-h: 76px;        /* ارتفاع الهيدر على الديسكتوب */
+  --header-gap-top: 12px;  /* مسافة من أعلى الصفحة */
+  --header-radius: 16px;   /* تدوير الزوايا */
+}
+
+/* الهيدر كصندوق ثابت بزوايا مدوّرة */
+.header {
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1100px, calc(100% - 24px));
+  height: 76px;
+  padding: 0 16px;
+
+  background: rgba(255, 255, 255, 0.25);   /* شفاف */
+  border-radius: 16px;                     /* زوايا مدوّرة */
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08); /* ظل خفيف */
+  border: 1px solid rgba(255, 255, 255, 0.4); /* حدود شبه شفافة */
+  
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+/* لأننا خلّينا .header نفسها فليكس، خفّف تنسيقات .container داخلها */
+.header .container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;      /* ما نحتاج حشوة داخلية زيادة */
+  width: 100%;
+}
+
+/* عشان المحتوى ما يختبي تحت الهيدر الثابت */
+body{
+  padding-top: calc(var(--header-h) + var(--header-gap-top) + 12px);
+}
+
+/* تكييف للجوال */
+@media (max-width: 640px){
+  :root{
+    --header-h: 64px;      /* يصغر ارتفاع الهيدر */
+    --header-radius: 12px; /* تدوير أخف */
+  }
+
+  .header{
+    width: min(1100px, calc(100% - 16px)); /* هامش جانبي أقل */
+    padding: 0 12px;
+  }
 }
