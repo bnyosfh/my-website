@@ -369,11 +369,3 @@ body{
   padding-bottom: 40px;
   text-align: center;
 }
----
-@media (max-width: 768px) {
-  /* هذا السطر يجعل قسم الخدمات يعرض عموداً واحداً على الجوال */
-  .services-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-}
