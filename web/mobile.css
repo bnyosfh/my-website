@@ -47,17 +47,3 @@
   .services-grid{ grid-template-columns:1fr; gap:20px; }
   .service-box{ padding:20px; border-radius:12px; }
 }
-@media (max-width: 640px) {
-  .nav ul {
-    gap: 14px;              /* 🔹 قلل المسافة بين الأيقونات */
-    justify-content: center; /* توسيط أفقي */
-  }
-
-  .nav a {
-    padding: 4px;           /* 🔹 قلل الحشوة حول الأيقونة */
-  }
-
-  .nav a i {
-    font-size: 18px;        /* 🔹 حجم أصغر شوي للأيقونة */
-  }
-}
