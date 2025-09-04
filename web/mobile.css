@@ -418,3 +418,7 @@ body{
   padding-bottom: 40px;
   text-align: center;
 }
+.services-grid {
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
