@@ -303,3 +303,7 @@ body {
 .projects-header, .page-title, .page-description {
   max-width: 900px; margin: 0 auto 20px; padding: 0 20px; text-align: center;
 }
+/* علشان أي قسم يجي بعد الهيدر ما يختفي وراه */
+body {
+  padding-top: 90px;  /* نفس ارتفاع الهيدر */
+}
