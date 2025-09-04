@@ -369,3 +369,9 @@ body{
   padding-bottom: 40px;
   text-align: center;
 }
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr; /* هذا يجعل الأعمدة تظهر كعمود واحد فقط */
+    gap: 20px; /* وهذا يضيف مسافة بين الصناديق */
+  }
+}
